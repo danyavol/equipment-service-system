@@ -9,13 +9,11 @@ services:
       - ${SERVER_PORT}:${SERVER_PORT}
     volumes:
       - ./server:/home/ess/server
-      - /home/ess/server/node_modules
+      - nodemodules:/home/ess/server/node_modules
     env_file:
       - .env
     depends_on:
       - database
-    links:
-      - database:postgres
     networks:
       - backend
       - frontend
@@ -23,6 +21,7 @@ services:
   database:
     container_name: postgres-container
     image: postgres:latest
+    restart: always
     environment:
       - POSTGRES_DB=${DB_NAME}
       - POSTGRES_USER=${DB_USER}
@@ -30,9 +29,24 @@ services:
     ports:
       - ${DB_PORT}:${DB_PORT}
     volumes:
-      - db-data:/var/lib/postgresql
+      - db-data:/var/lib/postgresql/data
     networks:
       - backend
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=pgadmin4@pgadmin.org
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    ports:
+      - 5050:80
+    volumes:
+     - pgadmin-data:/var/lib/pgadmin
+
+  # Use the following hostname to connect to porstgres via pgadmin:
+  # host.docker.internal
 
 networks:
   backend:
@@ -42,4 +56,5 @@ networks:
 
 volumes:
   db-data:
-  ignore:
+  pgadmin-data:
+  nodemodules:
