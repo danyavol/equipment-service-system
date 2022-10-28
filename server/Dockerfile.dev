@@ -1,0 +1,13 @@
+FROM node:lts-slim
+
+WORKDIR /home/ess/server
+
+COPY package*.json .
+
+RUN npm install
+
+COPY . .
+
+EXPOSE ${SERVER_PORT}
+
+CMD ["npm", "run", "dev"] 

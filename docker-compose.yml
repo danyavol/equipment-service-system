@@ -1,0 +1,45 @@
+services:
+  server:
+    container_name: server-container
+    restart: always
+    build: 
+      context: server/
+      dockerfile: Dockerfile.dev
+    ports:
+      - ${SERVER_PORT}:${SERVER_PORT}
+    volumes:
+      - ./server:/home/ess/server
+      - /home/ess/server/node_modules
+    env_file:
+      - .env
+    depends_on:
+      - database
+    links:
+      - database:postgres
+    networks:
+      - backend
+      - frontend
+
+  database:
+    container_name: postgres-container
+    image: postgres:latest
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+    volumes:
+      - db-data:/var/lib/postgresql
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
+  frontend:
+    driver: bridge
+
+volumes:
+  db-data:
+  ignore:
