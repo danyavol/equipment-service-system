@@ -9,14 +9,25 @@ services:
       - ${SERVER_PORT}:${SERVER_PORT}
     volumes:
       - ./server:/home/ess/server
-      - nodemodules:/home/ess/server/node_modules
+      - nodemodules-server:/home/ess/server/node_modules
     env_file:
       - .env
     depends_on:
       - database
-    networks:
-      - backend
-      - frontend
+
+  client:
+    container_name: client-container
+    restart: always
+    build: 
+      context: client/
+      dockerfile: Dockerfile.dev
+    ports:
+      - ${CLIENT_PORT}:${CLIENT_PORT}
+    volumes:
+      - ./client:/home/ess/client
+      - nodemodules-client:/home/ess/client/node_modules
+    env_file:
+      - .env
 
   database:
     container_name: postgres-container
@@ -30,8 +41,6 @@ services:
       - ${DB_PORT}:${DB_PORT}
     volumes:
       - db-data:/var/lib/postgresql/data
-    networks:
-      - backend
 
   pgadmin:
     container_name: pgadmin
@@ -48,13 +57,8 @@ services:
   # Use the following hostname to connect to porstgres via pgadmin:
   # host.docker.internal
 
-networks:
-  backend:
-    driver: bridge
-  frontend:
-    driver: bridge
-
 volumes:
   db-data:
   pgadmin-data:
-  nodemodules:
+  nodemodules-server:
+  nodemodules-client:

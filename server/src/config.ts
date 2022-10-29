@@ -5,7 +5,8 @@ export const config = {
     DB_PASSWORD: getEnv('DB_PASSWORD'),
     
     DB_PORT: parseInt(getEnv('DB_PORT')),
-    SERVER_PORT: parseInt(getEnv('SERVER_PORT'))
+    SERVER_PORT: parseInt(getEnv('SERVER_PORT')),
+    CLIENT_PORT: parseInt(getEnv('CLIENT_PORT')),
 };
 
 function getEnv(envVariable: string) {
