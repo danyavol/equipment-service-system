@@ -1,4 +1,5 @@
 import { db } from "@models/index";
+import { Status } from "@models/order.model";
 import { Router } from "express";
 
 const routes = Router();
@@ -11,8 +12,10 @@ routes.get('/view', async (req, res) => {
 
 routes.get('/add', async (req, res) => {
     await db.Orders.create({
-        name: "test",
-        isUrgent: true
+        clientName: "Daniil",
+        description: "Почините ПК",
+        phoneNumber: "375291111111",
+        status: Status.New
     });
     res.send("Success");
 })
