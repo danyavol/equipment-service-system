@@ -16,8 +16,12 @@ import { insertWork } from "./work.mock";
     await Promise.all([
         insertOrders(),
         insertSupplies(),
+        insertWork()
+    ]);
+
+    // Junction tables
+    await Promise.all([
         insertOrderSupplies(),
-        insertWork(),
         insertOrderWork()
     ]);
 })()
