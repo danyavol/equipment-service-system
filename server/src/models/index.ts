@@ -1,6 +1,6 @@
 import { Sequelize } from "sequelize";
 import { config } from "src/config";
-import { createOrderSuppliesModel } from "./order-supplies.model";
+import { createOrderSuppliesModel } from "./order-supply.model";
 import { createOrderWorkModel } from "./order-work.model";
 import { createOrderModel } from "./order.model";
 import { createSupplyModel } from "./supply.model";

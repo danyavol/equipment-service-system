@@ -1,4 +1,5 @@
-import { CreationOptional, DataTypes, InferAttributes, InferCreationAttributes, Model, Sequelize } from "sequelize";
+import { CreationOptional, DataTypes, InferAttributes, InferCreationAttributes, Model, NonAttribute, Sequelize } from "sequelize";
+import { OrderSupplies } from "./order-supply.model";
 
 
 export class Supply extends Model<InferAttributes<Supply>, InferCreationAttributes<Supply>> {
@@ -7,6 +8,8 @@ export class Supply extends Model<InferAttributes<Supply>, InferCreationAttribut
     declare pieceCost: number;
     declare totalAmount: number;
     declare supplyDate: CreationOptional<Date>;
+
+    declare ordersSupply?: NonAttribute<OrderSupplies>;
 }
 
 export function createSupplyModel(sequelize: Sequelize) {
@@ -35,7 +38,7 @@ export function createSupplyModel(sequelize: Sequelize) {
         }
     }, {
         sequelize,
-        tableName: "Supplies",
+        modelName: "supply",
         timestamps: false
     });
 }

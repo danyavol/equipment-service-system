@@ -1,4 +1,6 @@
-import { CreationOptional, DataTypes, InferAttributes, InferCreationAttributes, Model, Sequelize } from "sequelize";
+import { Association, CreationOptional, DataTypes, HasManyGetAssociationsMixin, InferAttributes, InferCreationAttributes, Model, NonAttribute, Sequelize } from "sequelize";
+import { Supply } from "./supply.model";
+import { Work } from "./work.model";
 
 export enum Status {
     New = "new",
@@ -17,6 +19,9 @@ export class Order extends Model<InferAttributes<Order>, InferCreationAttributes
     declare status: Status;
     declare createdAt: CreationOptional<Date>;
     declare updatedAt: CreationOptional<Date>;
+
+    declare works?: NonAttribute<Work[]>;
+    declare supplies?: NonAttribute<Supply[]>;
 }
 
 export function createOrderModel(sequelize: Sequelize) {
@@ -50,6 +55,6 @@ export function createOrderModel(sequelize: Sequelize) {
         updatedAt: DataTypes.DATE
     }, {
         sequelize,
-        tableName: "Orders"
+        modelName: "order"
     });
 }

@@ -1,6 +1,6 @@
 import { db } from "@models/index";
 
-export async function insertWork() {
+export async function insertWorks() {
     await db.Work.bulkCreate([
         {
             id: 1,

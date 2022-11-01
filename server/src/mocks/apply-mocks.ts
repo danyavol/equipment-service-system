@@ -2,11 +2,11 @@ const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, '../../../.env') });
 
 import { db } from "@models/index";
-import { insertOrderSupplies } from "./order-supplies.mock";
-import { insertOrderWork } from "./order-work.mock";
+import { insertOrdersSupplies } from "./order-supply.mock";
+import { insertOrdersWorks } from "./order-work.mock";
 import { insertOrders } from "./order.mock";
 import { insertSupplies } from "./supply.mock";
-import { insertWork } from "./work.mock";
+import { insertWorks } from "./work.mock";
 
 (async () => {
     // Clear all tables
@@ -16,12 +16,12 @@ import { insertWork } from "./work.mock";
     await Promise.all([
         insertOrders(),
         insertSupplies(),
-        insertWork()
+        insertWorks()
     ]);
 
     // Junction tables
     await Promise.all([
-        insertOrderSupplies(),
-        insertOrderWork()
+        insertOrdersSupplies(),
+        insertOrdersWorks()
     ]);
 })()
