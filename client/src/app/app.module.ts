@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ButtonModule } from 'primeng/button';
 import { HttpClientModule } from '@angular/common/http';
+import { CreateOrderModule } from './modules/create-order/create-order.module';
 
 @NgModule({
     declarations: [
@@ -13,8 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
     imports: [
         BrowserModule,
         AppRoutingModule,
-        ButtonModule,
         HttpClientModule,
+        CreateOrderModule,
     ],
     providers: [],
     bootstrap: [AppComponent]

@@ -1,0 +1,24 @@
+.order-card {
+    max-width: 600px;
+    display: block;
+    margin: auto;
+}
+
+.control {
+    > label {
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    + .control {
+        margin-top: 1rem;
+    }
+
+    > .medium-width {
+        width: 300px;
+    }
+
+    > .full-width {
+        width: 100%;
+    }
+}

@@ -13,10 +13,10 @@ export class AppComponent {
     constructor(private http: HttpClient) {}
 
     addNew() {
-        this.http.get(environment.apiUrl + "/add").subscribe();
+        this.http.get(environment.apiUrl + "/orders").subscribe();
     }
 
     refresh() {
-        this.http.get(environment.apiUrl + "/view").subscribe(data => this.data = data);
+        this.http.get(environment.apiUrl + "/orders").subscribe(data => this.data = data);
     }
 }

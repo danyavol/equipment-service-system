@@ -1,0 +1,39 @@
+<p-card header="Создать заявку" subheader="Заполните форму, чтобы отправить заявку на обслуживание компьютерной техники"
+    styleClass="p-card-shadow" class="order-card" [formGroup]="form">
+
+    <div class="control">
+        <label for="phoneNumber">Ваше имя</label>
+        <input type="text" pInputText class="full-width" formControlName="clientName">
+    </div>
+
+    <div class="control">
+        <label for="phoneNumber">Номер телефона</label>
+        <input type="text" pInputText placeholder="+375 (29) 123-45-67" class="full-width" formControlName="phoneNumber">
+    </div>
+
+    <div class="control">
+        <label for="phoneNumber">Электронная почта</label>
+        <input type="text" pInputText placeholder="example@gmail.com" class="full-width" formControlName="email">
+    </div>
+
+    <div class="control">
+        <label for="description">Описание</label>
+        <textarea rows="5" cols="30" pInputTextarea id="description"
+            [autoResize]="true" placeholder="Подробно опишите причину обращения"
+            class="full-width" formControlName="description"></textarea>
+    </div>
+
+    <ng-template pTemplate="footer">
+        <p-button label="Отправить заявку" icon="pi pi-check" (click)="submit()"></p-button>
+    </ng-template>
+</p-card>
+
+
+
+
+
+
+
+
+
+

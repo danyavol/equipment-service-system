@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Routes
-app.use(routes);
+app.use('/api', routes);
 
 app.listen(SERVER_PORT, () => {
     console.log(`Server listening on the port ${SERVER_PORT}`);
