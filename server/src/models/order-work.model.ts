@@ -1,8 +1,8 @@
 import { ForeignKey, InferAttributes, InferCreationAttributes, Model, Sequelize } from "sequelize";
 
 export class OrderWork extends Model<InferAttributes<OrderWork>, InferCreationAttributes<OrderWork>> {
-    declare orderId: ForeignKey<string>;
-    declare workId: ForeignKey<number>;
+    declare OrderId: ForeignKey<string>;
+    declare WorkId: ForeignKey<number>;
 }
 
 export function createOrderWorkModel(sequelize: Sequelize) {
