@@ -7,16 +7,16 @@ import { CreateOrderApiService } from './create-order-api.service';
 
 
 @NgModule({
-  declarations: [
-    CreateOrderComponent
-  ],
-  imports: [
-    CommonModule,
-    SharedModule
-  ],
-  exports: [
-    CreateOrderComponent
-  ],
-  providers: [CreateOrderApiService]
+    declarations: [
+        CreateOrderComponent
+    ],
+    imports: [
+        CommonModule,
+        SharedModule
+    ],
+    exports: [
+        CreateOrderComponent
+    ],
+    providers: [CreateOrderApiService]
 })
 export class CreateOrderModule { }
