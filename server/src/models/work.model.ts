@@ -3,7 +3,7 @@ import { OrderWork } from "./order-work.model";
 
 
 export class Work extends Model<InferAttributes<Work>, InferCreationAttributes<Work>> {
-    declare id: CreationOptional<number>;
+    declare id: CreationOptional<string>;
     declare title: string;
     declare cost: number;
 
@@ -13,9 +13,9 @@ export class Work extends Model<InferAttributes<Work>, InferCreationAttributes<W
 export function createWorkModel(sequelize: Sequelize) {
     return Work.init({
         id: {
-            type: DataTypes.INTEGER,
-            autoIncrement: true,
-            primaryKey: true
+            type: DataTypes.UUID,
+            defaultValue: DataTypes.UUIDV4,
+            primaryKey: true,
         },
         title: {
             type: DataTypes.STRING,

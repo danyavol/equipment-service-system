@@ -13,7 +13,7 @@ orders.get('/', async (req, res) => {
         const result = await db.Orders.findAll();
 
         res.send(result);
-    } catch(err) {
+    } catch (err) {
         handleError(res, err);
     }
 });
@@ -37,9 +37,9 @@ orders.get('/:orderId', async (req, res) => {
         });
 
         res.send(result);
-    } catch(err) {
+    } catch (err) {
         handleError(res, err);
-    }   
+    }
 });
 
 orders.post('/', async (req, res) => {
@@ -53,9 +53,9 @@ orders.post('/', async (req, res) => {
             description,
             status: Status.New,
         }, {});
-    
+
         res.send(newOrder.id);
-    } catch(err) {
+    } catch (err) {
         handleError(res, err);
     }
-})
+});

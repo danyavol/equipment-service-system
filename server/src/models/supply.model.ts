@@ -4,7 +4,7 @@ import { Order } from "./order.model";
 
 
 export class Supply extends Model<InferAttributes<Supply>, InferCreationAttributes<Supply>> {
-    declare id: CreationOptional<number>;
+    declare id: CreationOptional<string>;
     declare title: string;
     declare pieceCost: number;
     declare totalAmount: number;
@@ -19,9 +19,9 @@ export class Supply extends Model<InferAttributes<Supply>, InferCreationAttribut
 export function createSupplyModel(sequelize: Sequelize) {
     return Supply.init({
         id: {
-            type: DataTypes.INTEGER,
-            autoIncrement: true,
-            primaryKey: true
+            type: DataTypes.UUID,
+            defaultValue: DataTypes.UUIDV4,
+            primaryKey: true,
         },
         title: {
             type: DataTypes.STRING,
