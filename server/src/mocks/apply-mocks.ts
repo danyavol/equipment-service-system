@@ -9,8 +9,8 @@ import { insertSupplies } from "./supply.mock";
 import { insertWorks } from "./work.mock";
 
 (async () => {
-    // Clear all tables
-    await db.sequelize.truncate({ cascade: true });
+    // Drop all tables and create them again
+    await db.sequelize.sync({ force: true });
 
     // Insert mock data
     await Promise.all([

@@ -3,7 +3,7 @@ import { Status } from "@models/order.model";
 import { Supply } from "@models/supply.model";
 import { Work } from "@models/work.model";
 import { Router } from "express";
-import { ValidationError } from "sequelize";
+import { handleError } from "src/services/error-handle.service";
 
 const orders = Router();
 export default orders;
@@ -13,8 +13,8 @@ orders.get('/', async (req, res) => {
         const result = await db.Orders.findAll();
 
         res.send(result);
-    } catch(e) {
-        res.status(500).send(e);
+    } catch(err) {
+        handleError(res, err);
     }
 });
 
@@ -37,8 +37,8 @@ orders.get('/:orderId', async (req, res) => {
         });
 
         res.send(result);
-    } catch(e) {
-        res.status(500).send(e);
+    } catch(err) {
+        handleError(res, err);
     }   
 });
 
@@ -55,11 +55,7 @@ orders.post('/', async (req, res) => {
         }, {});
     
         res.send(newOrder.id);
-    } catch(e) {
-        if (e instanceof ValidationError) {
-            res.status(400).send(e);
-        } else {
-            res.status(500).send(e);
-        }
+    } catch(err) {
+        handleError(res, err);
     }
 })

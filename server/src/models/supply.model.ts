@@ -1,5 +1,6 @@
 import { CreationOptional, DataTypes, InferAttributes, InferCreationAttributes, Model, NonAttribute, Sequelize } from "sequelize";
 import { OrderSupplies } from "./order-supply.model";
+import { Order } from "./order.model";
 
 
 export class Supply extends Model<InferAttributes<Supply>, InferCreationAttributes<Supply>> {
@@ -9,7 +10,10 @@ export class Supply extends Model<InferAttributes<Supply>, InferCreationAttribut
     declare totalAmount: number;
     declare supplyDate: CreationOptional<Date>;
 
+    declare availableAmount?: number;
+
     declare ordersSupply?: NonAttribute<OrderSupplies>;
+    declare orders?: NonAttribute<Order[]>;
 }
 
 export function createSupplyModel(sequelize: Sequelize) {
@@ -35,6 +39,12 @@ export function createSupplyModel(sequelize: Sequelize) {
             type: DataTypes.DATE,
             defaultValue: DataTypes.NOW,
             allowNull: false
+        },
+        availableAmount: {
+            type: DataTypes.VIRTUAL,
+            get() {
+                return this.orders ? this.totalAmount - this.orders.length : undefined;
+            }
         }
     }, {
         sequelize,

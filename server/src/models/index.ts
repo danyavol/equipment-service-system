@@ -28,6 +28,3 @@ db.Supplies.belongsToMany(db.Orders, { through: db.OrderSupplies });
 
 db.Orders.belongsToMany(db.Work, { through: db.OrderWork });
 db.Work.belongsToMany(db.Orders, { through: db.OrderWork });
-
-// Sync with database
-sequelize.sync();

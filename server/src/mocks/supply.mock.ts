@@ -18,7 +18,13 @@ export async function insertSupplies() {
             id: 3,
             title: "Аккумулятор телефона 4000mAh",
             pieceCost: 40,
-            totalAmount: 3,
+            totalAmount: 1,
+        },
+        {
+            id: 4,
+            title: "Аккумулятор телефона 3500mAh",
+            pieceCost: 35,
+            totalAmount: 5,
         },
     ]);
 }
