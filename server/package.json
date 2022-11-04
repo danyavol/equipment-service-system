@@ -2,7 +2,7 @@
   "scripts": {
     "dev": "nodemon -L -r tsconfig-paths/register src/main.ts",
     "build": "tsc --build && tsc-alias",
-    "apply-mocks": "ts-node -r tsconfig-paths/register src/mocks/apply-mocks.ts"
+    "apply-mocks": "ts-node -r tsconfig-paths/register src/seeds/seed.ts"
   },
   "dependencies": {
     "cors": "^2.8.5",
