@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { OrdersApiService } from '../../services/orders-api.service';
 
 @Component({
-  selector: 'ess-orders-list-shell',
-  templateUrl: './orders-list-shell.component.html',
-  styleUrls: ['./orders-list-shell.component.scss']
+    selector: 'ess-orders-list-shell',
+    templateUrl: './orders-list-shell.component.html',
+    styleUrls: ['./orders-list-shell.component.scss']
 })
 export class OrdersListShellComponent implements OnInit {
 
-  constructor() { }
+    orders$ = this.apiService.getAllOrders();
 
-  ngOnInit(): void {
-  }
+    constructor(private apiService: OrdersApiService) { }
+
+    ngOnInit(): void {
+    }
 
 }

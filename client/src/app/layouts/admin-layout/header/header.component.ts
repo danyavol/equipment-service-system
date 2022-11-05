@@ -24,7 +24,8 @@ export class HeaderComponent {
                 },
                 {
                     label: 'Создать заявку',
-                    icon: 'pi pi-fw pi-plus'
+                    icon: 'pi pi-fw pi-plus',
+                    routerLink: '/new-order',
                 },
             ]
         },
@@ -61,10 +62,6 @@ export class HeaderComponent {
                     icon: 'pi pi-fw pi-plus'
                 },
             ]
-        },
-        {
-            label: 'Выйти',
-            icon: 'pi pi-fw pi-sign-out'
         }
     ];
 

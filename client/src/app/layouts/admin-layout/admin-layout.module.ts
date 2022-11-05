@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { AdminLayoutComponent } from './admin-layout.component';
 import { MenubarModule } from 'primeng/menubar';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import { MenubarModule } from 'primeng/menubar';
     ],
     imports: [
         CommonModule,
+        SharedModule,
         MenubarModule
     ],
     exports: [

@@ -9,7 +9,7 @@ services:
       - ${SERVER_PORT}:${SERVER_PORT}
     volumes:
       - ./server:/home/ess/server
-      - nodemodules-server:/home/ess/server/node_modules
+      - ./server/node_modules:/home/ess/server/node_modules
     env_file:
       - .env
     depends_on:
@@ -25,7 +25,7 @@ services:
       - ${CLIENT_PORT}:${CLIENT_PORT}
     volumes:
       - ./client:/home/ess/client
-      - nodemodules-client:/home/ess/client/node_modules
+      - ./client/node_modules:/home/ess/client/node_modules
     env_file:
       - .env
 

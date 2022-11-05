@@ -1,0 +1,14 @@
+:host {
+    margin: 1rem;
+    display: block;
+
+    ::ng-deep {
+        .p-menubar {
+            gap: 10px;
+        }
+
+        .p-menubar-root-list {
+            gap: 5px;
+        }
+    }
+}

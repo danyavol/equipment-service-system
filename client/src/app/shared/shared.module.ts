@@ -6,13 +6,15 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { CardModule } from 'primeng/card';
+import { TableModule } from 'primeng/table';
 
 const PRIMENG_MODULES = [
     ButtonModule,
     InputTextareaModule,
     InputMaskModule,
     InputTextModule,
-    CardModule
+    CardModule,
+    TableModule  
 ];
 
 @NgModule({
