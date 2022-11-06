@@ -7,6 +7,8 @@ export const config = {
     DB_PORT: parseInt(getEnv('DB_PORT')),
     SERVER_PORT: parseInt(getEnv('SERVER_PORT')),
     CLIENT_PORT: parseInt(getEnv('CLIENT_PORT')),
+
+    PRIVATE_KEY: getEnv('PRIVATE_KEY'),
 };
 
 function getEnv(envVariable: string) {

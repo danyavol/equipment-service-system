@@ -4,6 +4,7 @@ import { createOrderSuppliesModel } from "./order-supply.model";
 import { createOrderWorkModel } from "./order-work.model";
 import { createOrderModel } from "./order.model";
 import { createSupplyModel } from "./supply.model";
+import { createUserModel } from "./user.model";
 import { createWorkModel } from "./work.model";
 
 const sequelize = new Sequelize(config.DB_NAME, config.DB_USER, config.DB_PASSWORD, {
@@ -19,7 +20,8 @@ export const db = {
     Supplies: createSupplyModel(sequelize),
     OrderSupplies: createOrderSuppliesModel(sequelize),
     Work: createWorkModel(sequelize),
-    OrderWork: createOrderWorkModel(sequelize)
+    OrderWork: createOrderWorkModel(sequelize),
+    User: createUserModel(sequelize)
 };
 
 // Relations

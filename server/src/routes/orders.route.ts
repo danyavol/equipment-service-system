@@ -3,12 +3,13 @@ import { Status } from "@models/order.model";
 import { Supply } from "@models/supply.model";
 import { Work } from "@models/work.model";
 import { Router } from "express";
+import { authOnly } from "src/services/auth.service";
 import { handleError } from "src/services/error-handle.service";
 
 const orders = Router();
 export default orders;
 
-orders.get('/', async (req, res) => {
+orders.get('/', authOnly, async (req, res) => {
     try {
         const result = await db.Orders.findAll();
 
@@ -35,6 +36,8 @@ orders.get('/:orderId', async (req, res) => {
                 }
             ]
         });
+
+        if (!result) return res.status(400).send('Invalid orderId');
 
         res.send(result);
     } catch (err) {

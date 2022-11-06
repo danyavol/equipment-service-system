@@ -1,11 +1,9 @@
-const path = require('path');
-require('dotenv').config({ path: path.resolve(__dirname, '../../../.env') });
-
 import { db } from "@models/index";
 import { insertOrdersSupplies } from "./order-supply.seed";
 import { insertOrdersWorks } from "./order-work.seed";
 import { insertOrders } from "./order.seed";
 import { insertSupplies } from "./supply.seed";
+import { insertUsers } from "./user.seed";
 import { insertWorks } from "./work.seed";
 
 (async () => {
@@ -16,7 +14,8 @@ import { insertWorks } from "./work.seed";
     await Promise.all([
         insertOrders(),
         insertSupplies(),
-        insertWorks()
+        insertWorks(),
+        insertUsers()
     ]);
 
     // Junction tables

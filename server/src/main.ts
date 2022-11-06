@@ -1,8 +1,9 @@
+import cookieParser from 'cookie-parser';
+import cors from 'cors';
 import express from 'express';
 import { config } from './config';
-import routes from './routes';
-import cors from 'cors';
 import { db } from './models';
+import routes from './routes';
 
 const app = express();
 const { SERVER_PORT, CLIENT_PORT } = config;
@@ -18,6 +19,7 @@ app.use(cors({
 // Requests parser
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cookieParser());
 
 // Routes
 app.use('/api', routes);
