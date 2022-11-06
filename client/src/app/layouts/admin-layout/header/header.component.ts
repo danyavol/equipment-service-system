@@ -58,6 +58,7 @@ export class HeaderComponent {
                 {
                     label: 'Все услуги',
                     icon: 'pi pi-fw pi-list',
+                    routerLink: '/admin/work'
                 },
                 {
                     separator: true

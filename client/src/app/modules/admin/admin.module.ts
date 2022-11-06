@@ -11,6 +11,9 @@ import { ActiveOrdersListShellComponent } from './containers/active-orders-list-
 import { SuppliesListShellComponent } from './containers/supplies-list-shell/supplies-list-shell.component';
 import { SuppliesApiService } from './services/supplies-api.service';
 import { SuppliesListTableComponent } from './components/supplies-list-table/supplies-list-table.component';
+import { WorksApiService } from './services/works-api.service';
+import { WorkListShellComponent } from './containers/work-list-shell/work-list-shell.component';
+import { WorkListTableComponent } from './components/work-list-table/work-list-table.component';
 
 
 
@@ -21,7 +24,9 @@ import { SuppliesListTableComponent } from './components/supplies-list-table/sup
         OrdersListTableComponent,
         ActiveOrdersListShellComponent,
         SuppliesListShellComponent,
-        SuppliesListTableComponent
+        SuppliesListTableComponent,
+        WorkListShellComponent,
+        WorkListTableComponent
     ],
     imports: [
         CommonModule,
@@ -31,7 +36,8 @@ import { SuppliesListTableComponent } from './components/supplies-list-table/sup
     ],
     providers: [
         OrdersApiService,
-        SuppliesApiService
+        SuppliesApiService,
+        WorksApiService
     ]
 })
 export class AdminModule { }
