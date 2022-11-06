@@ -4,6 +4,7 @@ import { Work } from "./work.model";
 
 export enum Status {
     New = "new",
+    Cancel = "cancel",
     ReadyForWork = "readyForWork",
     InProcess = "inProcess",
     Resolved = "resolved",

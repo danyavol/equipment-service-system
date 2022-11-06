@@ -14,14 +14,14 @@ export class HeaderComponent {
             icon: 'pi pi-fw pi-book',
             items: [
                 {
-                    label: 'Все заявки',
-                    icon: 'pi pi-fw pi-list',
-                    routerLink: '/admin/orders'
-                },
-                {
                     label: 'Активные заявки',
                     icon: 'pi pi-fw pi-list',
                     routerLink: '/admin/orders/active'
+                },
+                {
+                    label: 'Все заявки',
+                    icon: 'pi pi-fw pi-list',
+                    routerLink: '/admin/orders'
                 },
                 {
                     separator: true

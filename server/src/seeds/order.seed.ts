@@ -19,6 +19,12 @@ export async function insertOrders() {
             description: "Чистка компьютера"
         },
         {
+            clientName: "Вася",
+            phoneNumber: "+375299999999",
+            status: Status.Cancel,
+            description: "Хочу пиццу",
+        },
+        {
             id: "483cbee2-0748-46b1-ab08-2e726241f339",
             clientName: "Ярослав",
             phoneNumber: "+375299994567",

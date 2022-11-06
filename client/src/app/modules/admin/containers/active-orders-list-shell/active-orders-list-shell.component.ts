@@ -3,7 +3,7 @@ import { map } from 'rxjs';
 import { OrderStatus } from 'src/app/shared/constants/status.constant';
 import { OrdersApiService } from '../../services/orders-api.service';
 
-const activeStatuses = [OrderStatus.New, OrderStatus.ReadyForWork, OrderStatus.InProcess, OrderStatus.Resolved];
+
 
 @Component({
     selector: 'ess-active-orders-list-shell',
@@ -12,9 +12,11 @@ const activeStatuses = [OrderStatus.New, OrderStatus.ReadyForWork, OrderStatus.I
 })
 export class ActiveOrdersListShellComponent {
 
+    activeStatuses = [OrderStatus.New, OrderStatus.ReadyForWork, OrderStatus.InProcess, OrderStatus.Resolved];
+
     orders$ = this.apiService.getAllOrders().pipe(
         map(orders => {
-            return orders.filter(order => activeStatuses.includes(order.status));
+            return orders.filter(order => this.activeStatuses.includes(order.status));
         })
     );
 

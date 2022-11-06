@@ -4,6 +4,12 @@
     title="Активные заявки"
 >
     <div note class="note">
-        * Отображаются заявки в статусе <strong>Новый</strong>, <strong>Готов к работе</strong>, <strong>В работе</strong> и <strong>Готов к выдаче</strong>.
+        * Отображаются заявки в статусе
+        <ng-container *ngFor="let status of activeStatuses; let i = index">
+            <ess-order-status-badge class="status" [status]="status"></ess-order-status-badge>
+            {{i < activeStatuses.length - 2 ? ',' : null}}
+            {{i === activeStatuses.length - 2 ? 'и' : null}}
+        </ng-container>
+        .
     </div>
 </ess-orders-list-table>

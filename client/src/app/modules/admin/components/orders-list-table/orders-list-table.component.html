@@ -25,7 +25,9 @@
     </ng-template>
     <ng-template pTemplate="body" let-order>
         <tr *ngIf="orderType(order) as order">
-            <td>{{statusName[order.status]}}</td>
+            <td>
+                <ess-order-status-badge [status]="order.status"></ess-order-status-badge>
+            </td>
             <td>{{order.clientName}}</td>
             <td>{{order.phoneNumber}}</td>
             <td>{{order.email}}</td>
