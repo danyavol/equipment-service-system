@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { OrdersApiService } from '../../services/orders-api.service';
 
 @Component({
@@ -6,13 +6,8 @@ import { OrdersApiService } from '../../services/orders-api.service';
     templateUrl: './orders-list-shell.component.html',
     styleUrls: ['./orders-list-shell.component.scss']
 })
-export class OrdersListShellComponent implements OnInit {
-
+export class OrdersListShellComponent {
     orders$ = this.apiService.getAllOrders();
 
     constructor(private apiService: OrdersApiService) { }
-
-    ngOnInit(): void {
-    }
-
 }

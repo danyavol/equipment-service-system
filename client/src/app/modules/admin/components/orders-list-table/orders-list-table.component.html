@@ -1,8 +1,10 @@
+<ng-content note></ng-content>
+
 <p-table #dt [value]="orders" [columns]="cols" dataKey="id" responsiveLayout="scroll" [rows]="3">
     <ng-template pTemplate="caption">
         <div class="table-header">
             <div class="toolbar-group">
-                <h2 class="table-title">Все заявки</h2>
+                <h2 class="table-title">{{title}}</h2>
                 <span class="separator"></span>
                 <h3 class="table-count">{{orders.length}}</h3>
             </div>

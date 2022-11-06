@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { statusName } from 'src/app/shared/constants/status.constant';
 import { Order } from '../../interfaces/order.interface';
 
@@ -9,6 +10,9 @@ import { Order } from '../../interfaces/order.interface';
 })
 export class OrdersListTableComponent {
     @Input() orders: Order[] = [];
+    @Input() title: string = '';
+    @Input() note: string | null = null;
+
     @Output() edit = new EventEmitter<string>();
 
     statusName = statusName;

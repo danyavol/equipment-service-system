@@ -1,0 +1,9 @@
+<ess-orders-list-table
+    *ngIf="orders$ | async as orders"
+    [orders]="orders"
+    title="Активные заявки"
+>
+    <div note class="note">
+        * Отображаются заявки в статусе <strong>Новый</strong>, <strong>Готов к работе</strong>, <strong>В работе</strong> и <strong>Готов к выдаче</strong>.
+    </div>
+</ess-orders-list-table>

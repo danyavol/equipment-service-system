@@ -7,6 +7,7 @@ import { OrdersListShellComponent } from './containers/orders-list-shell/orders-
 import { OrdersApiService } from './services/orders-api.service';
 import { OrdersListTableComponent } from './components/orders-list-table/orders-list-table.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ActiveOrdersListShellComponent } from './containers/active-orders-list-shell/active-orders-list-shell.component';
 
 
 
@@ -14,7 +15,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     declarations: [
         AdminComponent,
         OrdersListShellComponent,
-        OrdersListTableComponent
+        OrdersListTableComponent,
+        ActiveOrdersListShellComponent
     ],
     imports: [
         CommonModule,

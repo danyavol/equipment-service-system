@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
+import { ActiveOrdersListShellComponent } from './containers/active-orders-list-shell/active-orders-list-shell.component';
 import { OrdersListShellComponent } from './containers/orders-list-shell/orders-list-shell.component';
 
 const routes: Routes = [
@@ -11,6 +12,10 @@ const routes: Routes = [
             {
                 path: "orders",
                 component: OrdersListShellComponent
+            },
+            {
+                path: "orders/active",
+                component: ActiveOrdersListShellComponent
             }
         ]
     }

@@ -16,8 +16,12 @@ export class HeaderComponent {
                 {
                     label: 'Все заявки',
                     icon: 'pi pi-fw pi-list',
-                    routerLink: '/admin/orders',
-                    routerLinkActiveOptions: { exact: true }
+                    routerLink: '/admin/orders'
+                },
+                {
+                    label: 'Активные заявки',
+                    icon: 'pi pi-fw pi-list',
+                    routerLink: '/admin/orders/active'
                 },
                 {
                     separator: true
