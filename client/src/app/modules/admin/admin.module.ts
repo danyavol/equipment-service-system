@@ -14,6 +14,10 @@ import { SuppliesListTableComponent } from './components/supplies-list-table/sup
 import { WorksApiService } from './services/works-api.service';
 import { WorkListShellComponent } from './containers/work-list-shell/work-list-shell.component';
 import { WorkListTableComponent } from './components/work-list-table/work-list-table.component';
+import { AuthShellComponent } from './containers/auth-shell/auth-shell.component';
+import { AuthService } from './services/auth.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 
 
@@ -26,18 +30,23 @@ import { WorkListTableComponent } from './components/work-list-table/work-list-t
         SuppliesListShellComponent,
         SuppliesListTableComponent,
         WorkListShellComponent,
-        WorkListTableComponent
+        WorkListTableComponent,
+        AuthShellComponent
     ],
     imports: [
         CommonModule,
         SharedModule,
         AdminRoutingModule,
+        HttpClientModule,
         AdminLayoutModule
     ],
     providers: [
+        { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+        AuthService,
         OrdersApiService,
         SuppliesApiService,
-        WorksApiService
+        WorksApiService,
+
     ]
 })
 export class AdminModule { }

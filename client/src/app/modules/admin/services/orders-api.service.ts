@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Order, OrderDetails } from '../interfaces/order.interface';
 

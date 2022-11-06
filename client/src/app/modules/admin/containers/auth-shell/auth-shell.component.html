@@ -1,0 +1,17 @@
+<p-card header="Панель управления" subheader="Введите логин и пароль для входа"
+    styleClass="p-card-shadow" class="auth-card" [formGroup]="form">
+
+    <div class="control">
+        <label for="phoneNumber">Логин</label>
+        <input type="text" pInputText class="full-width" formControlName="username">
+    </div>
+
+    <div class="control">
+        <label for="phoneNumber">Пароль</label>
+        <input type="password" pInputText class="full-width" formControlName="password">
+    </div>
+
+    <ng-template pTemplate="footer">
+        <p-button label="Войти" icon="pi pi-sign-in" (click)="submit()"></p-button>
+    </ng-template>
+</p-card>
