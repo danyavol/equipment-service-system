@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -7,6 +7,7 @@ import { MenuItem } from 'primeng/api';
     styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+    @Output() logOut = new EventEmitter<void>();
 
     items: MenuItem[] = [
         {
@@ -71,4 +72,7 @@ export class HeaderComponent {
         }
     ];
 
+    onLogOut() {
+        this.logOut.emit();
+    }
 }

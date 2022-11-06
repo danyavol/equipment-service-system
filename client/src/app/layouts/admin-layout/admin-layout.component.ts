@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
-  selector: 'ess-admin-layout',
-  templateUrl: './admin-layout.component.html',
-  styleUrls: ['./admin-layout.component.scss']
+    selector: 'ess-admin-layout',
+    templateUrl: './admin-layout.component.html',
+    styleUrls: ['./admin-layout.component.scss']
 })
-export class AdminLayoutComponent implements OnInit {
+export class AdminLayoutComponent {
+    @Output() logOut = new EventEmitter<void>();
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+    onLogOut() {
+        this.logOut.emit();
+    }
 }

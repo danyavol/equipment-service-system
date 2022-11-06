@@ -3,6 +3,6 @@
         <img src="assets/logo.png" height="40" class="mr-2">
     </ng-template>
     <ng-template pTemplate="end">
-        <p-button icon="pi pi-fw pi-sign-out" label="Выйти" styleClass="p-button-text p-button-plain"></p-button>
+        <p-button icon="pi pi-fw pi-sign-out" label="Выйти" (click)="onLogOut()" styleClass="p-button-text p-button-plain"></p-button>
     </ng-template>
 </p-menubar>
