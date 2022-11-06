@@ -40,6 +40,7 @@ export class HeaderComponent {
                 {
                     label: 'Все запасы',
                     icon: 'pi pi-fw pi-list',
+                    routerLink: '/admin/supplies'
                 },
                 {
                     separator: true

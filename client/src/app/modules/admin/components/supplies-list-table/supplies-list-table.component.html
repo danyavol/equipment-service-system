@@ -1,0 +1,31 @@
+<p-table #dt [value]="supplies" [columns]="cols" dataKey="id" responsiveLayout="scroll" [rows]="3">
+    <ng-template pTemplate="caption">
+        <div class="table-header">
+            <div class="toolbar-group">
+                <h2 class="table-title">Все запасы</h2>
+                <span class="separator"></span>
+                <h3 class="table-count">{{supplies.length}}</h3>
+            </div>
+            <span class="p-input-icon-left">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" (input)="dt.filterGlobal($any($event.target).value, 'contains')" placeholder="Поиск" />
+            </span>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                {{col.header}}
+                <p-sortIcon [field]="col.field"></p-sortIcon>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-supply>
+        <tr *ngIf="supplyType(supply) as supply">
+            <td>{{supply.title}}</td>
+            <td>{{supply.pieceCost}} р.</td>
+            <td>{{supply.availableAmount}} / {{supply.totalAmount}}</td>
+            <td>{{supply.supplyDate | date: "short"}}</td>
+        </tr>
+    </ng-template>
+</p-table>

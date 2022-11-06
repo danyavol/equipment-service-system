@@ -3,33 +3,6 @@
     margin-bottom: 1rem;
 }
 
-.table-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    .table-title {
-        margin: 0;
-    }
-
-    .table-count {
-        color: var(--primary-color);
-        margin: 0;
-        font-size: 1.5rem;
-    }
-
-    .toolbar-group {
-        display: flex;
-
-        .separator {
-            display: block;
-            width: 2px;
-            background: var(--gray-500);
-            margin: 2px 15px;
-        }
-    }
-}
-
 :host ::ng-deep {
     .action-icon {
         padding: 0.5rem;
