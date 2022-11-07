@@ -9,6 +9,7 @@ import { CardModule } from 'primeng/card';
 import { TableModule } from 'primeng/table';
 import { BadgeModule } from 'primeng/badge';
 import { OrderStatusBadgeComponent } from './components/order-status-badge/order-status-badge.component';
+import { InputNumberModule } from 'primeng/inputnumber';
 
 const PRIMENG_MODULES = [
     ButtonModule,
@@ -17,7 +18,8 @@ const PRIMENG_MODULES = [
     InputTextModule,
     CardModule,
     TableModule,
-    BadgeModule
+    BadgeModule,
+    InputNumberModule
 ];
 
 @NgModule({

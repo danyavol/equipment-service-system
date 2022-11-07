@@ -18,6 +18,8 @@ import { AuthShellComponent } from './containers/auth-shell/auth-shell.component
 import { AuthService } from './services/auth.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { CreateSupplyShellComponent } from './containers/create-supply-shell/create-supply-shell.component';
+import { SupplyFormComponent } from './components/supply-form/supply-form.component';
 
 
 
@@ -31,7 +33,9 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
         SuppliesListTableComponent,
         WorkListShellComponent,
         WorkListTableComponent,
-        AuthShellComponent
+        AuthShellComponent,
+        CreateSupplyShellComponent,
+        SupplyFormComponent
     ],
     imports: [
         CommonModule,

@@ -1,0 +1,14 @@
+<p-card header="Добавить запас" subheader="Заполните форму, чтобы добавить новый запас"
+    styleClass="p-card-shadow" class="order-card">
+
+    <ess-supply-form [form]="supplyForm"></ess-supply-form>
+
+    <ng-template pTemplate="footer">
+        <div class="card-footer-buttons">
+            <p-button label="Добавить" (click)="submit()" styleClass="p-button-outlined" [loading]="isLoading" [disabled]="supplyForm.invalid"></p-button>
+
+            <p-button label="Добавить и выйти" icon="pi pi-check" (click)="submit(true)" [loading]="isLoading" [disabled]="supplyForm.invalid"></p-button>
+        </div>
+    </ng-template>
+</p-card>
+

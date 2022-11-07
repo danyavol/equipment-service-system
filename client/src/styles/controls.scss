@@ -1,0 +1,32 @@
+p-inputnumber, .p-inputnumber {
+    width: 100%;
+}
+
+.ess-control-wrapper {
+    .ess-label {
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    .ess-control {
+        width: 100%;
+    }
+
+    + .ess-control-wrapper, + .ess-controls-group {
+        margin-top: 1rem;
+    }
+}
+
+.ess-controls-group {
+    display: flex;
+    gap: 1rem;
+
+    > .ess-control-wrapper {
+        flex-grow: 1;
+        margin-top: 0;
+    }
+
+    + .ess-control-wrapper, + .ess-controls-group {
+        margin-top: 1rem;
+    }
+}

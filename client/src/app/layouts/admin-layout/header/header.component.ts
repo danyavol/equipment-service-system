@@ -48,7 +48,8 @@ export class HeaderComponent {
                 },
                 {
                     label: 'Добавить запас',
-                    icon: 'pi pi-fw pi-plus'
+                    icon: 'pi pi-fw pi-plus',
+                    routerLink: '/admin/new-supply'
                 },
             ]
         },

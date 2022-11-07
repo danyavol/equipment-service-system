@@ -1,0 +1,24 @@
+<ng-container *ngIf="form" [formGroup]="form">
+    <div class="ess-control-wrapper">
+        <label for="title" class="ess-label">Название</label>
+        <input type="text" pInputText id="title" class="ess-control" formControlName="title">
+    </div>
+
+    <div class="ess-controls-group">
+        <div class="ess-control-wrapper">
+            <label for="pieceCost" class="ess-label">Цена за шт.</label>
+            <div class="p-inputgroup">
+                <p-inputNumber inputId="pieceCost" [minFractionDigits]="0" [maxFractionDigits]="2" formControlName="pieceCost">
+                </p-inputNumber>
+                <span class="p-inputgroup-addon">р.</span>
+            </div>
+
+        </div>
+
+        <div class="ess-control-wrapper">
+            <label for="totalAmount" class="ess-label">Количество</label>
+            <p-inputNumber [showButtons]="true" inputId="totalAmount" class="ess-control" formControlName="totalAmount">
+            </p-inputNumber>
+        </div>
+    </div>
+</ng-container>
