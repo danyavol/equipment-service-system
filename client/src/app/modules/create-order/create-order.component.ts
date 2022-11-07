@@ -18,7 +18,7 @@ export class CreateOrderComponent {
     constructor(private apiService: CreateOrderApiService, private cdr: ChangeDetectorRef) {}
 
     submit() {
-        this.form.markAsTouched();
+        this.form.markAllAsTouched();
         if (this.form.invalid) return;
 
         this.isLoading = true;

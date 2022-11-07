@@ -11,6 +11,9 @@ import { BadgeModule } from 'primeng/badge';
 import { OrderStatusBadgeComponent } from './components/order-status-badge/order-status-badge.component';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { BasicOrderFormComponent } from './components/basic-order-form/basic-order-form.component';
+import { TuiFieldErrorPipeModule, TuiInputModule, TuiInputPhoneModule, TuiTextAreaModule } from '@taiga-ui/kit';
+import { TuiButtonModule, TuiErrorModule } from '@taiga-ui/core';
+import { TUI_VALIDATION_ERRORS_PROVIDER } from '../providers/validation-errors.provider';
 
 const PRIMENG_MODULES = [
     ButtonModule,
@@ -23,6 +26,15 @@ const PRIMENG_MODULES = [
     InputNumberModule
 ];
 
+const TAIGA_MODULES = [
+    TuiInputModule,
+    TuiInputPhoneModule,
+    TuiTextAreaModule,
+    TuiButtonModule,
+    TuiFieldErrorPipeModule,
+    TuiErrorModule
+];
+
 @NgModule({
     declarations: [
         OrderStatusBadgeComponent,
@@ -32,14 +44,19 @@ const PRIMENG_MODULES = [
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
-        ...PRIMENG_MODULES
+        ...PRIMENG_MODULES,
+        ...TAIGA_MODULES
     ],
     exports: [
         ...PRIMENG_MODULES,
+        ...TAIGA_MODULES,
         FormsModule,
         ReactiveFormsModule,
         OrderStatusBadgeComponent,
         BasicOrderFormComponent,
     ],
+    providers: [
+        TUI_VALIDATION_ERRORS_PROVIDER
+    ]
 })
 export class SharedModule { }

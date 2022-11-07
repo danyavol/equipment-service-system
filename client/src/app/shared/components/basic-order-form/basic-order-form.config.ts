@@ -14,8 +14,8 @@ export class BasicOrderFormConfig {
     constructor(value: BasicOrderFormValue = {}) {
         const fb = new FormBuilder().nonNullable;
         this.clientName = fb.control(value.clientName ?? '', [Validators.required, Validators.maxLength(128)]);
-        this.phoneNumber = fb.control(value.phoneNumber ?? '', [Validators.required, Validators.maxLength(20)]);
-        this.email = fb.control(value.email ?? '', [Validators.required, Validators.email]);
+        this.phoneNumber = fb.control(value.phoneNumber ?? '', [Validators.required, Validators.minLength(13)]);
+        this.email = fb.control(value.email ?? '', [Validators.email]);
         this.description = fb.control(value.description ?? '', [Validators.required, Validators.maxLength(512)])
     }
 }

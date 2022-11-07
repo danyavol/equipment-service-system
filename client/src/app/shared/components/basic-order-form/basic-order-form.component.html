@@ -1,26 +1,36 @@
 <ng-container *ngIf="form" [formGroup]="form">
-    <div class="ess-controls-group">
-        <div class="ess-control-wrapper name-field">
-            <label for="name" class="ess-label">Ваше имя</label>
-            <input type="text" pInputText id="name" class="ess-control" formControlName="clientName">
+    <div class="tui-form__row_multi-fields">
+        <div class="tui-form__multi-field">
+            <tui-input formControlName="clientName">
+                Ваше имя
+                <span class="tui-required"></span>
+                <input tuiTextfield type="text" />
+            </tui-input>
+            <tui-error formControlName="clientName" [error]="[] | tuiFieldError | async"></tui-error>
         </div>
-
-        <div class="ess-control-wrapper">
-            <label for="phoneNumber" class="ess-label">Номер телефона</label>
-            <input type="text" pInputText id="phoneNumber" mask="+375 (99) 999 99 99" placeholder="+375 (29) 123-45-67" class="ess-control"
-                formControlName="phoneNumber">
+        <div class="tui-form__multi-field">
+            <tui-input-phone formControlName="phoneNumber" countryCode="+375"
+                phoneMaskAfterCountryCode="(##) ###-##-##">
+                Номер телефона
+                <span class="tui-required"></span>
+                <input tuiTextfield autocomplete="tel" />
+            </tui-input-phone>
+            <tui-error formControlName="phoneNumber" [error]="[] | tuiFieldError | async"></tui-error>
         </div>
     </div>
-
-    <div class="ess-control-wrapper">
-        <label for="email" class="ess-label">Электронная почта</label>
-        <input type="text" pInputText id="email" placeholder="example@gmail.com" class="ess-control" formControlName="email">
+    <div class="tui-form__row">
+        <tui-input formControlName="email">
+            Электронная почта
+            <input tuiTextfield placeholder="example@gmail.com" type="email" />
+        </tui-input>
+        <tui-error formControlName="email" [error]="[] | tuiFieldError | async"></tui-error>
     </div>
-
-    <div class="ess-control-wrapper">
-        <label for="description" class="ess-label">Описание</label>
-        <textarea rows="5" cols="30" pInputTextarea id="description" [autoResize]="true"
-            placeholder="Подробно опишите причину обращения" class="ess-control"
-            formControlName="description"></textarea>
+    <div class="tui-form__row">
+        <tui-text-area formControlName="description" [expandable]="true" [maxLength]="512">
+            Описание
+            <span class="tui-required"></span>
+            <textarea tuiTextfield placeholder="Подробно опишите причину обращения"></textarea>
+        </tui-text-area>
+        <tui-error formControlName="description" [error]="[] | tuiFieldError | async"></tui-error>
     </div>
 </ng-container>

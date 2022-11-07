@@ -1,11 +1,13 @@
-<p-card header="Создать заявку" subheader="Заполните форму, чтобы отправить заявку на обслуживание компьютерной техники"
-    styleClass="p-card-shadow" class="order-card" [formGroup]="form">
+<div class="tui-container tui-container_adaptive">
+    <div class="tui-form__header">
+        Создать заявку
+        <!-- Заполните форму, чтобы отправить заявку на обслуживание компьютерной техники -->
+    </div>
 
     <ess-basic-order-form [form]="form"></ess-basic-order-form>
 
-    <ng-template pTemplate="footer">
-        <div class="ess-footer-buttons">
-            <p-button label="Отправить заявку" icon="pi pi-check" (click)="submit()" [loading]="isLoading" [disabled]="form.invalid"></p-button>
-        </div>
-    </ng-template>
-</p-card>
+    <div class="tui-form__buttons tui-form__buttons_align_end">
+        <button class="tui-form__button" tuiButton icon="tuiIconCheckLarge" (click)="submit()" [showLoader]="isLoading">Отправить заявку</button>
+    </div>
+</div>
+
