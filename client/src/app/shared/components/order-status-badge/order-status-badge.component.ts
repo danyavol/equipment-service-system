@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { TuiSizeL, TuiSizeS } from '@taiga-ui/core';
 import { OrderStatus, statusName } from '../../constants/status.constant';
 
 @Component({
@@ -8,19 +9,20 @@ import { OrderStatus, statusName } from '../../constants/status.constant';
 })
 export class OrderStatusBadgeComponent{
     @Input() status?: OrderStatus;
+    @Input() size: TuiSizeS | TuiSizeL = 'm';
 
     statusName = statusName;
 
     get severity() {
         switch (this.status) {
             case OrderStatus.New:
-                return 'p-badge-success';
+                return 'success-color';
             case OrderStatus.Cancel:
-                return 'p-badge-danger';
+                return 'danger-color';
             case OrderStatus.ReadyForWork:
-                return 'p-badge-warning';
+                return 'warning-color';
             case OrderStatus.InProcess:
-                return 'p-badge-info';
+                return 'active-color';
             case OrderStatus.Resolved:
                 return 'help-color';
             case OrderStatus.Done:

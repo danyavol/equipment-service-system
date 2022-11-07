@@ -9,3 +9,16 @@
         width: auto;
     }
 }
+
+.search-input {
+    width: 250px;
+}
+
+.table-scrollbar {
+    max-height: 500px;
+
+    .table {
+        width: 100%;
+    }
+}
+

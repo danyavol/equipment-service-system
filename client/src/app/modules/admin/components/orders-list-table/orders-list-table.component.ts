@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { debounceTime, distinctUntilChanged, map } from 'rxjs';
 import { statusName } from 'src/app/shared/constants/status.constant';
 import { Order } from '../../interfaces/order.interface';
 
@@ -15,7 +16,20 @@ export class OrdersListTableComponent {
 
     @Output() edit = new EventEmitter<string>();
 
+    @ViewChild('defaultSorting') def: any;
+
     statusName = statusName;
+    search = new FormControl('');
+
+    filteredOrders$ = this.search.valueChanges.pipe(
+        debounceTime(300),
+        distinctUntilChanged(),
+        map((searchValue) => {
+            return this.orders.filter(() => true); // TODO
+        })
+    );
+
+    readonly columns = ['status', 'clientName', 'phoneNumber', 'email', 'description', 'createdAt', 'updatedAt', 'actions'];
 
     cols: { field: keyof Order, header: string }[] = [
         { field: 'status', header: 'Статус' },

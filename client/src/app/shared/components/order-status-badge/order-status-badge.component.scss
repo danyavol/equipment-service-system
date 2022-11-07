@@ -1,16 +1,23 @@
+.success-color {
+    background-color: var(--tui-support-03);
+}
+
+.danger-color {
+    background-color: var(--tui-support-05);
+}
+
+.warning-color {
+    background-color: var(--tui-support-07);
+}
+
+.active-color {
+    background-color: var(--tui-support-01);
+}
+
 .help-color {
-    color: white;
-    background-color: var(--purple-500);
+    background-color: var(--tui-support-09);
 }
 
 .secondary-color {
-    color: white;
-    background-color: var(--bluegray-400);
-}
-
-.p-badge.medium-size {
-    font-size: 0.8rem;
-    min-width: 1.8rem;
-    height: 1.8rem;
-    line-height: 1.8rem;
+    background-color: var(--tui-base-04);
 }

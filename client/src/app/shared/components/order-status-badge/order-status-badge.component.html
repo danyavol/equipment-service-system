@@ -1,1 +1,1 @@
-<span *ngIf="status"  class="p-badge medium-size {{severity}}">{{statusName[status]}}</span>
+<tui-tag *ngIf="status" [size]="size" status="custom" class="{{severity}}" [value]="statusName[status]"></tui-tag>

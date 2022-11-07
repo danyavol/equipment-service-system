@@ -1,19 +1,21 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ButtonModule } from 'primeng/button';
-import { InputMaskModule } from 'primeng/inputmask';
-import { InputTextareaModule } from 'primeng/inputtextarea';
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { InputTextModule } from 'primeng/inputtext';
-import { CardModule } from 'primeng/card';
-import { TableModule } from 'primeng/table';
+import { TuiTableModule } from '@taiga-ui/addon-table';
+import { TuiLetModule } from '@taiga-ui/cdk';
+import { TuiButtonModule, TuiErrorModule, TuiTextfieldControllerModule, TuiScrollbarModule } from '@taiga-ui/core';
+import { TuiFieldErrorPipeModule, TuiInputModule, TuiInputPhoneModule, TuiTagModule, TuiTextAreaModule } from '@taiga-ui/kit';
 import { BadgeModule } from 'primeng/badge';
-import { OrderStatusBadgeComponent } from './components/order-status-badge/order-status-badge.component';
+import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
+import { InputMaskModule } from 'primeng/inputmask';
 import { InputNumberModule } from 'primeng/inputnumber';
-import { BasicOrderFormComponent } from './components/basic-order-form/basic-order-form.component';
-import { TuiFieldErrorPipeModule, TuiInputModule, TuiInputPhoneModule, TuiTextAreaModule } from '@taiga-ui/kit';
-import { TuiButtonModule, TuiErrorModule } from '@taiga-ui/core';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { TableModule } from 'primeng/table';
 import { TUI_VALIDATION_ERRORS_PROVIDER } from '../providers/validation-errors.provider';
+import { BasicOrderFormComponent } from './components/basic-order-form/basic-order-form.component';
+import { OrderStatusBadgeComponent } from './components/order-status-badge/order-status-badge.component';
 
 const PRIMENG_MODULES = [
     ButtonModule,
@@ -32,7 +34,12 @@ const TAIGA_MODULES = [
     TuiTextAreaModule,
     TuiButtonModule,
     TuiFieldErrorPipeModule,
-    TuiErrorModule
+    TuiErrorModule,
+    TuiTagModule,
+    TuiTextfieldControllerModule,
+    TuiTableModule,
+    TuiLetModule,
+    TuiScrollbarModule,
 ];
 
 @NgModule({
