@@ -10,6 +10,7 @@ import { TableModule } from 'primeng/table';
 import { BadgeModule } from 'primeng/badge';
 import { OrderStatusBadgeComponent } from './components/order-status-badge/order-status-badge.component';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { BasicOrderFormComponent } from './components/basic-order-form/basic-order-form.component';
 
 const PRIMENG_MODULES = [
     ButtonModule,
@@ -24,7 +25,8 @@ const PRIMENG_MODULES = [
 
 @NgModule({
     declarations: [
-        OrderStatusBadgeComponent
+        OrderStatusBadgeComponent,
+        BasicOrderFormComponent
     ],
     imports: [
         CommonModule,
@@ -37,6 +39,7 @@ const PRIMENG_MODULES = [
         FormsModule,
         ReactiveFormsModule,
         OrderStatusBadgeComponent,
+        BasicOrderFormComponent,
     ],
 })
 export class SharedModule { }

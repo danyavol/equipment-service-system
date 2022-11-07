@@ -9,18 +9,3 @@
     flex-grow: 1;
     max-width: 600px;
 }
-
-.control {
-    > label {
-        display: block;
-        margin-bottom: 0.5rem;
-    }
-
-    + .control {
-        margin-top: 1rem;
-    }
-
-    > .full-width {
-        width: 100%;
-    }
-}

@@ -1,5 +1,3 @@
-import { FormControl } from "@angular/forms";
-
 export interface Supply {
     id: string;
     title: string;
@@ -7,10 +5,4 @@ export interface Supply {
     totalAmount: number;
     availableAmount: number;
     supplyDate: string;
-}
-
-export interface SupplyForm {
-    title: FormControl<string>;
-    pieceCost: FormControl<number | null>;
-    totalAmount: FormControl<number>;
 }

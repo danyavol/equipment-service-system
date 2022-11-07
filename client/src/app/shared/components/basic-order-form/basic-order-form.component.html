@@ -1,0 +1,26 @@
+<ng-container *ngIf="form" [formGroup]="form">
+    <div class="ess-controls-group">
+        <div class="ess-control-wrapper name-field">
+            <label for="name" class="ess-label">Ваше имя</label>
+            <input type="text" pInputText id="name" class="ess-control" formControlName="clientName">
+        </div>
+
+        <div class="ess-control-wrapper">
+            <label for="phoneNumber" class="ess-label">Номер телефона</label>
+            <input type="text" pInputText id="phoneNumber" mask="+375 (99) 999 99 99" placeholder="+375 (29) 123-45-67" class="ess-control"
+                formControlName="phoneNumber">
+        </div>
+    </div>
+
+    <div class="ess-control-wrapper">
+        <label for="email" class="ess-label">Электронная почта</label>
+        <input type="text" pInputText id="email" placeholder="example@gmail.com" class="ess-control" formControlName="email">
+    </div>
+
+    <div class="ess-control-wrapper">
+        <label for="description" class="ess-label">Описание</label>
+        <textarea rows="5" cols="30" pInputTextarea id="description" [autoResize]="true"
+            placeholder="Подробно опишите причину обращения" class="ess-control"
+            formControlName="description"></textarea>
+    </div>
+</ng-container>
