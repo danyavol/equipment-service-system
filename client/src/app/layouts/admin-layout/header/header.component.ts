@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { MenuItem } from 'primeng/api';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'ess-header',
@@ -9,69 +9,28 @@ import { MenuItem } from 'primeng/api';
 export class HeaderComponent {
     @Output() logOut = new EventEmitter<void>();
 
-    items: MenuItem[] = [
+    activeItemIndex: number;
+    tabs = [
         {
-            label: 'Заявки',
-            icon: 'pi pi-fw pi-book',
-            items: [
-                {
-                    label: 'Активные заявки',
-                    icon: 'pi pi-fw pi-list',
-                    routerLink: '/admin/orders/active'
-                },
-                {
-                    label: 'Все заявки',
-                    icon: 'pi pi-fw pi-list',
-                    routerLink: '/admin/orders'
-                },
-                {
-                    separator: true
-                },
-                {
-                    label: 'Создать заявку',
-                    icon: 'pi pi-fw pi-plus',
-                    routerLink: '/new-order',
-                },
-            ]
+            label: "Заявки",
+            icon: "ess::topic",
+            routerLink: "/admin/orders",
         },
         {
-            label: 'Запасы',
-            icon: 'pi pi-fw pi-box',
-            items: [
-                {
-                    label: 'Все запасы',
-                    icon: 'pi pi-fw pi-list',
-                    routerLink: '/admin/supplies'
-                },
-                {
-                    separator: true
-                },
-                {
-                    label: 'Добавить запас',
-                    icon: 'pi pi-fw pi-plus',
-                    routerLink: '/admin/new-supply'
-                },
-            ]
+            label: "Запасы",
+            icon: "ess::inventory",
+            routerLink: "/admin/supplies",
         },
         {
-            label: 'Услуги',
-            icon: 'pi pi-fw pi-bolt',
-            items: [
-                {
-                    label: 'Все услуги',
-                    icon: 'pi pi-fw pi-list',
-                    routerLink: '/admin/work'
-                },
-                {
-                    separator: true
-                },
-                {
-                    label: 'Добавить услугу',
-                    icon: 'pi pi-fw pi-plus'
-                },
-            ]
+            label: "Услуги",
+            icon: "ess::cases",
+            routerLink: "/admin/work",
         }
     ];
+
+    constructor(router: Router) {
+        this.activeItemIndex = this.tabs.findIndex(tab => tab.routerLink.startsWith(router.url)) ?? 0;
+    }
 
     onLogOut() {
         this.logOut.emit();

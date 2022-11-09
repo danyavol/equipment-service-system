@@ -12,3 +12,22 @@
         }
     }
 }
+
+
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    align-items: center;
+    padding: 0 1rem;
+
+    .left-side {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+    }
+}
+
+tui-tabs {
+    box-shadow: none;
+}

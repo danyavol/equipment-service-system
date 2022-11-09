@@ -1,5 +1,5 @@
 import { NgDompurifySanitizer } from "@tinkoff/ng-dompurify";
-import { TuiRootModule, TuiDialogModule, TuiAlertModule, TUI_SANITIZER } from "@taiga-ui/core";
+import { TuiRootModule, TuiDialogModule, TuiAlertModule, TUI_SANITIZER, TUI_SVG_SRC_PROCESSOR } from "@taiga-ui/core";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -33,6 +33,18 @@ import { of } from "rxjs";
         {
             provide: TUI_LANGUAGE,
             useValue: of(TUI_RUSSIAN_LANGUAGE),
+        },
+        {
+            provide: TUI_SVG_SRC_PROCESSOR,
+            useFactory: () => {
+                return (src: string): string => {
+                    const myCustomPrefix = `ess::`;
+
+                    return src.startsWith(myCustomPrefix)
+                        ? `assets/icons/${src.replace(myCustomPrefix, ``)}.svg`
+                        : src;
+                };
+            },
         },
     ],
     bootstrap: [AppComponent]
