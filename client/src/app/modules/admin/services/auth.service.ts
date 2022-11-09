@@ -30,6 +30,7 @@ export class AuthService {
 
     logOut() {
         this.isAuthorized = false;
+        this.http.get(`${environment.apiUrl}/auth/logout`).subscribe();
     }
 
     private getIsAuthorizedFromLS(): boolean {

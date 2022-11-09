@@ -1,6 +1,6 @@
 import { db } from "@models/index";
 import { Router } from "express";
-import { addTokenToResponse } from "src/services/auth.service";
+import { addTokenToResponse, removeTokenFromCookie } from "src/services/auth.service";
 import { Crypto } from "src/services/ctypro.service";
 import { handleError } from "src/services/error-handle.service";
 
@@ -26,6 +26,11 @@ auth.post('/get-token', async (req, res) => {
     } catch (e) {
         handleError(res, e);
     }
+});
+
+auth.get('/logout', (req, res) => {
+    removeTokenFromCookie(res);
+    res.sendStatus(204);
 });
 
 // auth.post('/encrypt-pass', (req, res) => {

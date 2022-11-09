@@ -1,26 +1,5 @@
 :host {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-}
-
-.auth-card {
-    flex-grow: 1;
     max-width: 400px;
-}
-
-.control {
-    > label {
-        display: block;
-        margin-bottom: 0.5rem;
-    }
-
-    + .control {
-        margin-top: 1rem;
-    }
-
-    > .full-width {
-        width: 100%;
-    }
+    display: block;
+    margin: auto;
 }

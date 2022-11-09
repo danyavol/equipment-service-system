@@ -11,7 +11,11 @@ export default orders;
 
 orders.get('/', authOnly, async (req, res) => {
     try {
-        const result = await db.Orders.findAll();
+        const result = await db.Orders.findAll({
+            order: [
+                ['updatedAt', 'DESC']
+            ]
+        });
 
         res.send(result);
     } catch (err) {

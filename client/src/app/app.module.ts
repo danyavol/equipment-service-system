@@ -8,8 +8,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateOrderModule } from './modules/create-order/create-order.module';
+import { TUI_LANGUAGE, TUI_RUSSIAN_LANGUAGE } from '@taiga-ui/i18n';
 
 import '@angular/common/locales/global/ru';
+import { of } from "rxjs";
 
 @NgModule({
     declarations: [
@@ -27,7 +29,11 @@ import '@angular/common/locales/global/ru';
     ],
     providers: [
         { provide: LOCALE_ID, useValue: 'ru-RU' },
-        { provide: TUI_SANITIZER, useClass: NgDompurifySanitizer }
+        { provide: TUI_SANITIZER, useClass: NgDompurifySanitizer },
+        {
+            provide: TUI_LANGUAGE,
+            useValue: of(TUI_RUSSIAN_LANGUAGE),
+        },
     ],
     bootstrap: [AppComponent]
 })
