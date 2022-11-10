@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ColumnConfig } from 'src/app/shared/interfaces/table.interface';
 import { Work } from '../../interfaces/work.interface';
 
 @Component({
@@ -6,21 +7,11 @@ import { Work } from '../../interfaces/work.interface';
     templateUrl: './work-list-table.component.html',
     styleUrls: ['./work-list-table.component.scss']
 })
-export class WorkListTableComponent implements OnInit {
-
+export class WorkListTableComponent {
     @Input() work: Work[] = [];
 
-    cols: { field: keyof Work, header: string }[] = [
-        { field: 'title', header: 'Название' },
-        { field: 'cost', header: 'Стоимость' },
+    columns: ColumnConfig<Work>[] = [
+        { columnName: 'title', title: 'Название' },
+        { columnName: 'cost', title: 'Стоимость' },
     ];
-
-    constructor() { }
-
-    ngOnInit(): void {
-    }
-
-    workType(work: Work) {
-        return work;
-    }
 }

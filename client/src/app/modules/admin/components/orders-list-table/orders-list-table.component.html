@@ -13,64 +13,23 @@
     </tui-input>
 </div>
 
-<tui-scrollbar class="table-scrollbar">
-    <table tuiTable [columns]="columns" size="l" class="table">
-        <thead>
-            <tr tuiThGroup>
-                <th *tuiHead="'status'" tuiTh [sticky]="true">
-                    Статус
-                </th>
-                <th *tuiHead="'clientName'" tuiTh [sticky]="true">
-                    Имя
-                </th>
-                <th *tuiHead="'phoneNumber'" tuiTh [sticky]="true">
-                    Телефон
-                </th>
-                <th *tuiHead="'email'" tuiTh [sticky]="true">
-                    Email
-                </th>
-                <th *tuiHead="'description'" tuiTh [sticky]="true">
-                    Описание
-                </th>
-                <th *tuiHead="'createdAt'" tuiTh [sticky]="true">
-                    Создано
-                </th>
-                <th *tuiHead="'updatedAt'" tuiTh [sticky]="true" >
-                    Обновлено
-                </th>
-                <th *tuiHead="'actions'" tuiTh [sorter]="null" [sticky]="true"></th>
-            </tr>
-        </thead>
-        <tbody *tuiLet="orders | tuiTableSort as sortedOrders" tuiTbody [data]="sortedOrders" [open]="true">
-            <tr *ngFor="let order of sortedOrders" tuiTr>
-                <td *tuiCell="'status'" tuiTd>
-                    <ess-order-status-badge [status]="order.status" size="l"></ess-order-status-badge>
-                </td>
-                <td *tuiCell="'clientName'" tuiTd>
-                    {{order.clientName}}
-                </td>
-                <td *tuiCell="'phoneNumber'" tuiTd>
-                    {{order.phoneNumber}}
-                </td>
-                <td *tuiCell="'email'" tuiTd>
-                    <a *ngIf="order.email" tuiLink [href]="'mailto:' + order.email">
-                        {{ order.email }}
-                    </a>
-                </td>
-                <td *tuiCell="'description'" tuiTd>
-                    {{order.description}}
-                </td>
-                <td *tuiCell="'createdAt'" tuiTd>
-                    {{order.createdAt | date: "short"}}
-                </td>
-                <td *tuiCell="'updatedAt'" tuiTd>
-                    {{order.updatedAt | date: "short"}}
-                </td>
-                <td *tuiCell="'actions'" tuiTd>
-                    <button tuiIconButton type="button" appearance="flat" icon="tuiIconEditLarge" size="s"
-                        shape="rounded" (click)="onEdit(order)"></button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</tui-scrollbar>
+<ess-table [dataset]="orders" [columns]="columns">
+    <ng-container *essCell="'status'; let order">
+        <ess-order-status-badge [status]="order.status" size="l"></ess-order-status-badge>
+    </ng-container>
+    <ng-container *essCell="'email'; let order">
+        <a *ngIf="order.email" tuiLink [href]="'mailto:' + order.email">
+            {{ order.email }}
+        </a>
+    </ng-container>
+    <ng-container *essCell="'createdAt'; let order">
+        {{order.createdAt | date: "short"}}
+    </ng-container>
+    <ng-container *essCell="'updatedAt'; let order">
+        {{order.updatedAt | date: "short"}}
+    </ng-container>
+    <ng-container *essCell="'actions'; let order">
+        <button tuiIconButton type="button" appearance="flat" icon="tuiIconEditLarge" size="s"
+            shape="rounded" (click)="onEdit(order)"></button>
+    </ng-container>
+</ess-table>

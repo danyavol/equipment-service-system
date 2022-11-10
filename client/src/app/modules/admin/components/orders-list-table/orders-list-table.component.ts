@@ -1,7 +1,7 @@
-import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs';
-import { statusName } from 'src/app/shared/constants/status.constant';
+import { ColumnConfig } from 'src/app/shared/interfaces/table.interface';
 import { Order } from '../../interfaces/order.interface';
 
 @Component({
@@ -16,9 +16,6 @@ export class OrdersListTableComponent {
 
     @Output() edit = new EventEmitter<string>();
 
-    @ViewChild('defaultSorting') def: any;
-
-    statusName = statusName;
     search = new FormControl('');
 
     filteredOrders$ = this.search.valueChanges.pipe(
@@ -29,15 +26,15 @@ export class OrdersListTableComponent {
         })
     );
 
-    readonly columns = ['status', 'clientName', 'phoneNumber', 'email', 'description', 'createdAt', 'updatedAt', 'actions'];
-
-    cols: { field: keyof Order, header: string }[] = [
-        { field: 'status', header: 'Статус' },
-        { field: 'clientName', header: 'Имя' },
-        { field: 'phoneNumber', header: 'Телефон' },
-        { field: 'email', header: 'Email' },
-        { field: 'description', header: 'Описание' },
-        { field: 'createdAt', header: 'Создано' },
+    columns: ColumnConfig<Order>[] = [
+        { columnName: 'status', title: 'Статус' },
+        { columnName: 'clientName', title: 'Имя' },
+        { columnName: 'phoneNumber', title: 'Телефон' },
+        { columnName: 'email', title: 'Email' },
+        { columnName: 'description', title: 'Описание' },
+        { columnName: 'createdAt', title: 'Создано' },
+        { columnName: 'updatedAt', title: 'Обновлено' },
+        { columnName: 'actions', title: '', sorting: false },
     ];
 
     orderType(order: Order) {

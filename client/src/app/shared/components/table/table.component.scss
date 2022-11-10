@@ -23,13 +23,21 @@ $border-radius: var(--tui-radius-m);
             border: none;
         }
 
-        tr:last-child td {
-            &:first-child {
-                border-bottom-left-radius: $border-radius;
+        tbody {
+            tr:last-child td {
+                &:first-child {
+                    border-bottom-left-radius: $border-radius;
+                }
+
+                &:last-child {
+                    border-bottom-right-radius: $border-radius;
+                }
             }
 
-            &:last-child {
-                border-bottom-right-radius: $border-radius;
+            tr:nth-child(odd) {
+                > td {
+                    background-color: var(--tui-base-02);
+                }
             }
         }
     }
