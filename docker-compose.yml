@@ -60,5 +60,3 @@ services:
 volumes:
   db-data:
   pgadmin-data:
-  nodemodules-server:
-  nodemodules-client:

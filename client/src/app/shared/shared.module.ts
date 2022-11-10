@@ -16,6 +16,8 @@ import { TableModule } from 'primeng/table';
 import { TUI_VALIDATION_ERRORS_PROVIDER } from '../providers/validation-errors.provider';
 import { BasicOrderFormComponent } from './components/basic-order-form/basic-order-form.component';
 import { OrderStatusBadgeComponent } from './components/order-status-badge/order-status-badge.component';
+import { CellContentDirective } from './components/table/cell-content.component';
+import { TableComponent } from './components/table/table.component';
 
 const PRIMENG_MODULES = [
     ButtonModule,
@@ -48,7 +50,9 @@ const TAIGA_MODULES = [
 @NgModule({
     declarations: [
         OrderStatusBadgeComponent,
-        BasicOrderFormComponent
+        BasicOrderFormComponent,
+        TableComponent,
+        CellContentDirective
     ],
     imports: [
         CommonModule,
@@ -64,6 +68,8 @@ const TAIGA_MODULES = [
         ReactiveFormsModule,
         OrderStatusBadgeComponent,
         BasicOrderFormComponent,
+        TableComponent,
+        CellContentDirective
     ],
     providers: [
         TUI_VALIDATION_ERRORS_PROVIDER

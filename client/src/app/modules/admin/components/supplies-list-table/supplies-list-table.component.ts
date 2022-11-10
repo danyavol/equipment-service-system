@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ColumnConfig } from 'src/app/shared/interfaces/table.interface';
 import { Supply } from '../../interfaces/supply.interface';
 
 @Component({
@@ -6,24 +7,17 @@ import { Supply } from '../../interfaces/supply.interface';
     templateUrl: './supplies-list-table.component.html',
     styleUrls: ['./supplies-list-table.component.scss']
 })
-export class SuppliesListTableComponent implements OnInit {
-
+export class SuppliesListTableComponent {
     @Input() supplies: Supply[] = [];
 
-    cols: { field: keyof Supply, header: string }[] = [
-        { field: 'title', header: 'Название' },
-        { field: 'pieceCost', header: 'Цена за шт.' },
-        { field: 'availableAmount', header: 'В наличии' },
-        { field: 'supplyDate', header: 'Дата поставки' },
+    columns: ColumnConfig<Supply>[] = [
+        { columnName: 'title', title: 'Название', sorting: true },
+        { columnName: 'pieceCost', title: 'Цена за шт.', sorting: true },
+        { columnName: 'availableAmount', title: 'В наличии', sorting: true },
+        { columnName: 'supplyDate', title: 'Дата поставки', sorting: true },
     ];
-
-    constructor() { }
-
-    ngOnInit(): void {
-    }
 
     supplyType(supply: Supply) {
         return supply;
     }
-
 }

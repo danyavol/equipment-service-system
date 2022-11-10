@@ -1,0 +1,27 @@
+<tui-scrollbar class="table-scrollbar">
+    <table tuiTable [columns]="tableFields" size="l" class="table">
+        <thead>
+            <tr tuiThGroup>
+                <ng-container *ngFor="let column of columns">
+                    <th *tuiHead="column.columnName" tuiTh [sorter]="column.sorter" [sticky]="true">
+                        {{column.title}}
+                    </th>
+                </ng-container>
+            </tr>
+        </thead>
+        <tbody *tuiLet="dataset | tuiTableSort as sortedDataset" tuiTbody [data]="sortedDataset" [open]="true">
+            <tr *ngFor="let item of sortedDataset" tuiTr>
+                <ng-container *ngFor="let column of columns">
+                    <td *tuiCell="$any(column.columnName)" tuiTd>
+                        <ng-container
+                            *ngIf="cellTemplatesMap.get(column.columnName) as cellTemplate; else rawDataTemplate"
+                            [ngTemplateOutlet]="cellTemplate"
+                            [ngTemplateOutletContext]="{ $implicit: item }"
+                        ></ng-container>
+                    </td>
+                    <ng-template #rawDataTemplate>{{item[column.columnName]}}</ng-template>
+                </ng-container>
+            </tr>
+        </tbody>
+    </table>
+</tui-scrollbar>

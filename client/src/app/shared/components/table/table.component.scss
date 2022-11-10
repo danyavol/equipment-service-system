@@ -1,0 +1,36 @@
+$border-radius: var(--tui-radius-m);
+
+.table-scrollbar {
+    max-height: 500px;
+
+    .table {
+        width: 100%;
+
+        th {
+            border: none;
+            border-bottom: 1px solid var(--tui-base-04);
+
+            &:first-child {
+                border-top-left-radius: $border-radius;
+            }
+
+            &:last-child {
+                border-top-right-radius: $border-radius;
+            }
+        }
+
+        td {
+            border: none;
+        }
+
+        tr:last-child td {
+            &:first-child {
+                border-bottom-left-radius: $border-radius;
+            }
+
+            &:last-child {
+                border-bottom-right-radius: $border-radius;
+            }
+        }
+    }
+}
