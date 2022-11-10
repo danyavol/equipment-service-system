@@ -12,6 +12,7 @@ import { TUI_LANGUAGE, TUI_RUSSIAN_LANGUAGE } from '@taiga-ui/i18n';
 
 import '@angular/common/locales/global/ru';
 import { of } from "rxjs";
+import { NotificationService } from "./services/notification.service";
 
 @NgModule({
     declarations: [
@@ -46,6 +47,7 @@ import { of } from "rxjs";
                 };
             },
         },
+        NotificationService,
     ],
     bootstrap: [AppComponent]
 })

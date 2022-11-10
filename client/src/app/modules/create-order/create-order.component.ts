@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { finalize } from 'rxjs';
+import { NotificationService } from 'src/app/services/notification.service';
 import { BasicOrderFormConfig } from 'src/app/shared/components/basic-order-form/basic-order-form.config';
 import { CreateOrderApiService } from './create-order-api.service';
 
@@ -15,7 +16,11 @@ export class CreateOrderComponent {
     form = new FormGroup(new BasicOrderFormConfig());
     isLoading = false;
 
-    constructor(private apiService: CreateOrderApiService, private cdr: ChangeDetectorRef) {}
+    constructor(
+        private apiService: CreateOrderApiService,
+        private cdr: ChangeDetectorRef,
+        private notification: NotificationService
+    ) {}
 
     submit() {
         this.form.markAllAsTouched();
@@ -31,10 +36,11 @@ export class CreateOrderComponent {
         ).subscribe({
             next: (orderId) => {
                 this.form.reset();
-                // TODO: Success message
+                this.notification.success('Ваша заявка успешно сохранена');
+                // TODO: Open order preview page
             },
             error: () => {
-                // TODO: Error message
+                this.notification.error('Не удалось создать заявку');
             },
         });
     }
