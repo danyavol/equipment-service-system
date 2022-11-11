@@ -1,26 +1,37 @@
-.table-header {
+.ess-toolbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: white;
+    border-bottom: 1px solid var(--tui-base-04);
+    border-top-left-radius: var(--tui-radius-m);
+    border-top-right-radius: var(--tui-radius-m);
 
-    .table-title {
+    &__title {
+        margin: 0;
+        font: var(--tui-font-heading-6);
+    }
+
+    &__count {
+        color: var(--tui-primary);
+        font: var(--tui-font-heading-5);
         margin: 0;
     }
 
-    .table-count {
-        color: var(--primary-color);
-        margin: 0;
-        font-size: 1.5rem;
+    &__separator {
+        display: block;
+        width: 2px;
+        height: 25px;
+        background: var(--tui-base-04);
     }
 
-    .toolbar-group {
+
+    &__group {
         display: flex;
-
-        .separator {
-            display: block;
-            width: 2px;
-            background: var(--gray-500);
-            margin: 2px 15px;
-        }
+        height: 45px;
+        align-items: center;
+        position: relative;
+        gap: 15px;
     }
 }

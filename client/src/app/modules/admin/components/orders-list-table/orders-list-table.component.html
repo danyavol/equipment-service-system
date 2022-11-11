@@ -1,18 +1,3 @@
-<ng-content note></ng-content>
-
-<div class="table-header">
-    <div class="toolbar-group">
-        <h2 class="table-title">{{title}}</h2>
-        <span class="separator"></span>
-        <h3 class="table-count">{{orders.length}}</h3>
-    </div>
-
-    <tui-input tuiTextfieldIconLeft="tuiIconSearchLarge" [formControl]="search" class="search-input">
-        Поиск
-        <input tuiTextfield />
-    </tui-input>
-</div>
-
 <ess-table [dataset]="orders" [columns]="columns">
     <ng-container *essCell="'status'; let order">
         <ess-order-status-badge [status]="order.status" size="l"></ess-order-status-badge>

@@ -7,7 +7,6 @@ import { OrdersListShellComponent } from './containers/orders-list-shell/orders-
 import { OrdersApiService } from './services/orders-api.service';
 import { OrdersListTableComponent } from './components/orders-list-table/orders-list-table.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { ActiveOrdersListShellComponent } from './containers/active-orders-list-shell/active-orders-list-shell.component';
 import { SuppliesListShellComponent } from './containers/supplies-list-shell/supplies-list-shell.component';
 import { SuppliesApiService } from './services/supplies-api.service';
 import { SuppliesListTableComponent } from './components/supplies-list-table/supplies-list-table.component';
@@ -28,7 +27,6 @@ import { SupplyFormComponent } from './components/supply-form/supply-form.compon
         AdminComponent,
         OrdersListShellComponent,
         OrdersListTableComponent,
-        ActiveOrdersListShellComponent,
         SuppliesListShellComponent,
         SuppliesListTableComponent,
         WorkListShellComponent,

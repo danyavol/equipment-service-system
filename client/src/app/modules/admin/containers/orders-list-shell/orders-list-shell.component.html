@@ -1,5 +1,30 @@
-<ess-orders-list-table
-    *ngIf="orders$ | async as orders"
-    [orders]="orders"
-    title="Все заявки"
-></ess-orders-list-table>
+<tui-loader *tuiLet="filteredOrders$ | async as orders" [overlay]="true" [showLoader]="!orders">
+    <div class="ess-toolbar">
+        <div class="ess-toolbar__group">
+            <tui-toggle [formControl]="onlyActiveControl" size="l"></tui-toggle>
+            <div class="ess-toolbar__title">
+                <ng-container *ngIf="onlyActiveControl.value">
+                    Активные заявки
+                    <tui-tooltip [content]="note" direction="bottom-right"></tui-tooltip>
+                </ng-container>
+                <ng-container *ngIf="!onlyActiveControl.value">
+                    Все заявки
+                    <tui-tooltip content="Отображаются все заявки" direction="bottom-right"></tui-tooltip>
+                </ng-container>
+            </div>
+
+            <span class="ess-toolbar__separator"></span>
+            <div class="ess-toolbar__count">{{orders?.length}}</div>
+        </div>
+    </div>
+
+    <ess-orders-list-table [orders]="orders || []"></ess-orders-list-table>
+</tui-loader>
+
+<ng-template #note>
+    Отображаются заявки в статусе
+    <ng-container *ngFor="let status of activeStatuses; let i = index">
+        <ess-order-status-badge class="status" [status]="status"></ess-order-status-badge>
+        {{i < activeStatuses.length - 2 ? ',' : null}} {{i===activeStatuses.length - 2 ? 'и' : null}}
+    </ng-container>
+</ng-template>
