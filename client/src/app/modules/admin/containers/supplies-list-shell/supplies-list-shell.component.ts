@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { SuppliesApiService } from '../../services/supplies-api.service';
 
 @Component({
@@ -6,13 +6,8 @@ import { SuppliesApiService } from '../../services/supplies-api.service';
     templateUrl: './supplies-list-shell.component.html',
     styleUrls: ['./supplies-list-shell.component.scss']
 })
-export class SuppliesListShellComponent implements OnInit {
-
+export class SuppliesListShellComponent {
     supplies$ = this.apiService.getAllSupplies();
 
     constructor(private apiService: SuppliesApiService) { }
-
-    ngOnInit(): void {
-    }
-
 }

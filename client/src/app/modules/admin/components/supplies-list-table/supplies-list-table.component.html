@@ -1,6 +1,3 @@
-Все запасы
-{{supplies.length}}
-
 <ess-table [dataset]="supplies" [columns]="columns">
     <ng-container *essCell="'availableAmount'; let supply">
         {{supply.availableAmount}} / {{supply.totalAmount}}

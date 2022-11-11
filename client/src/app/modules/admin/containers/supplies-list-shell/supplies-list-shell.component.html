@@ -1,1 +1,11 @@
-<ess-supplies-list-table *ngIf="supplies$ | async as supplies" [supplies]="supplies"></ess-supplies-list-table>
+<tui-loader *tuiLet="supplies$ | async as supplies" [overlay]="true" [showLoader]="!supplies">
+    <div class="ess-toolbar">
+        <div class="ess-toolbar__group">
+            <div class="ess-toolbar__title">Все запасы</div>
+            <span class="ess-toolbar__separator"></span>
+            <div class="ess-toolbar__count">{{supplies?.length}}</div>
+        </div>
+    </div>
+
+    <ess-supplies-list-table [supplies]="supplies || []"></ess-supplies-list-table>
+</tui-loader>

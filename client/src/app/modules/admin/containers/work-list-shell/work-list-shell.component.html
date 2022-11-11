@@ -1,1 +1,11 @@
-<ess-work-list-table *ngIf="work$ | async as work" [work]="work"></ess-work-list-table>
+<tui-loader *tuiLet="work$ | async as work" [overlay]="true" [showLoader]="!work">
+    <div class="ess-toolbar">
+        <div class="ess-toolbar__group">
+            <div class="ess-toolbar__title">Все услуги</div>
+            <span class="ess-toolbar__separator"></span>
+            <div class="ess-toolbar__count">{{work?.length}}</div>
+        </div>
+    </div>
+
+    <ess-work-list-table [work]="work || []"></ess-work-list-table>
+</tui-loader>

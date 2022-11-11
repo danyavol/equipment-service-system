@@ -16,8 +16,4 @@ export class SuppliesListTableComponent {
         { columnName: 'availableAmount', title: 'В наличии', sorting: true },
         { columnName: 'supplyDate', title: 'Дата поставки', sorting: true },
     ];
-
-    supplyType(supply: Supply) {
-        return supply;
-    }
 }
