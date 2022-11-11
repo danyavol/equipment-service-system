@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
+@UntilDestroy()
 @Component({
     selector: 'ess-header',
     templateUrl: './header.component.html',
@@ -9,8 +11,9 @@ import { Router } from '@angular/router';
 export class HeaderComponent {
     @Output() logOut = new EventEmitter<void>();
 
-    activeItemIndex: number;
-    tabs = [
+    activeItemIndex: number = -1;
+
+    readonly tabs = [
         {
             label: "Заявки",
             icon: "ess::topic",
@@ -29,10 +32,24 @@ export class HeaderComponent {
     ];
 
     constructor(router: Router) {
-        this.activeItemIndex = this.tabs.findIndex(tab => tab.routerLink.startsWith(router.url)) ?? 0;
+        this.setActiveItemIndex(router.url);
+
+        router.events.pipe(untilDestroyed(this)).subscribe(event => {
+            if (event instanceof NavigationEnd) {
+                this.setActiveItemIndex(event.url);
+            }
+        });
     }
 
     onLogOut() {
         this.logOut.emit();
+    }
+
+    private setActiveItemIndex(currentUrl: string): void {
+        this.activeItemIndex = this.tabs.findIndex(tab => this.isLinkActive(currentUrl, tab.routerLink));
+    }
+
+    private isLinkActive(currentUrl: string, link: string): boolean {
+        return currentUrl.startsWith(link);
     }
 }

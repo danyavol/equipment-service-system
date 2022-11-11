@@ -11,7 +11,7 @@ export class OrdersListTableComponent {
     @Input() orders: Order[] = [];
     @Output() edit = new EventEmitter<string>();
 
-    columns: ColumnConfig<Order>[] = [
+    readonly columns: ColumnConfig<Order>[] = [
         { columnName: 'status', title: 'Статус' },
         { columnName: 'clientName', title: 'Имя' },
         { columnName: 'phoneNumber', title: 'Телефон' },

@@ -12,7 +12,7 @@ import { OrdersApiService } from '../../services/orders-api.service';
 export class OrdersListShellComponent {
     orders$ = this.apiService.getAllOrders();
 
-    activeStatuses = [OrderStatus.New, OrderStatus.ReadyForWork, OrderStatus.InProcess, OrderStatus.Resolved];
+    readonly activeStatuses = [OrderStatus.New, OrderStatus.ReadyForWork, OrderStatus.InProcess, OrderStatus.Resolved];
     onlyActiveControl = new FormControl(true, { nonNullable: true });
 
     filteredOrders$ = combineLatest([

@@ -10,7 +10,7 @@ import { Supply } from '../../interfaces/supply.interface';
 export class SuppliesListTableComponent {
     @Input() supplies: Supply[] = [];
 
-    columns: ColumnConfig<Supply>[] = [
+    readonly columns: ColumnConfig<Supply>[] = [
         { columnName: 'title', title: 'Название', sorting: true },
         { columnName: 'pieceCost', title: 'Цена за шт.', sorting: true },
         { columnName: 'availableAmount', title: 'В наличии', sorting: true },

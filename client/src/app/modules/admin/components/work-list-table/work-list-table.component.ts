@@ -10,7 +10,7 @@ import { Work } from '../../interfaces/work.interface';
 export class WorkListTableComponent {
     @Input() work: Work[] = [];
 
-    columns: ColumnConfig<Work>[] = [
+    readonly columns: ColumnConfig<Work>[] = [
         { columnName: 'title', title: 'Название' },
         { columnName: 'cost', title: 'Стоимость' },
     ];
