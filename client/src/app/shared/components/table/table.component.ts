@@ -44,7 +44,7 @@ export class TableComponent<T extends Record<string, any>> implements AfterConte
     private getParsedColumnConfigs(configs: ColumnConfig<T>[]): ParsedColumnConfig<T>[] {
         return configs.map(config => ({
             columnName: config.columnName,
-            title: config.title,
+            title: config?.title || '',
             sorter: this.getSorter(config)
         }));
     }

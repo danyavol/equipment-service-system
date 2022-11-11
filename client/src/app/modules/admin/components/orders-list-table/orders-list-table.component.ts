@@ -19,7 +19,7 @@ export class OrdersListTableComponent {
         { columnName: 'description', title: 'Описание' },
         { columnName: 'createdAt', title: 'Создано' },
         { columnName: 'updatedAt', title: 'Обновлено' },
-        { columnName: 'actions', title: '', sorting: false },
+        { columnName: 'actions', sorting: false },
     ];
 
     onEdit(order: Order) {
