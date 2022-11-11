@@ -2,17 +2,9 @@
     <div class="left-side">
         <img src="assets/logo.png" height="40" class="mr-2">
         <tui-tabs [(activeItemIndex)]="activeItemIndex">
-            <button tuiTab routerLink="/admin/orders">
-                <tui-svg src="ess::topic" class="tui-space_right-2"></tui-svg>
-                Заявки
-            </button>
-            <button tuiTab routerLink="/admin/supplies">
-                <tui-svg src="ess::inventory" class="tui-space_right-2"></tui-svg>
-                Запасы
-            </button>
-            <button tuiTab routerLink="/admin/work">
-                <tui-svg src="ess::cases" class="tui-space_right-2"></tui-svg>
-                Услуги
+            <button *ngFor="let tab of tabs" tuiTab [routerLink]="tab.routerLink">
+                <tui-svg [src]="tab.icon" class="tui-space_right-2"></tui-svg>
+                {{tab.label}}
             </button>
         </tui-tabs>
     </div>
