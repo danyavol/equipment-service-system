@@ -9,7 +9,6 @@ const routes: Routes = [
     },
     {
         path: 'admin',
-        // canMatch: [], // TODO: Add guard
         loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule)
     },
     { path: '**', pathMatch: 'full', redirectTo: 'new-order' }

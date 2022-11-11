@@ -19,6 +19,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { CreateSupplyShellComponent } from './containers/create-supply-shell/create-supply-shell.component';
 import { SupplyFormComponent } from './components/supply-form/supply-form.component';
+import { CreateOrderShellComponent } from './containers/create-order-shell/create-order-shell.component';
+import { CreateWorkShellComponent } from './containers/create-work-shell/create-work-shell.component';
 
 
 
@@ -33,7 +35,9 @@ import { SupplyFormComponent } from './components/supply-form/supply-form.compon
         WorkListTableComponent,
         AuthShellComponent,
         CreateSupplyShellComponent,
-        SupplyFormComponent
+        SupplyFormComponent,
+        CreateOrderShellComponent,
+        CreateWorkShellComponent
     ],
     imports: [
         CommonModule,

@@ -1,9 +1,14 @@
-<tui-loader *tuiLet="supplies$ | async as supplies" [overlay]="true" [showLoader]="!supplies">
+<tui-loader *tuiLet="supplies$ | async as supplies" [overlay]="true" [showLoader]="!supplies" class="ess-card-shadow">
     <div class="ess-toolbar">
         <div class="ess-toolbar__group">
             <div class="ess-toolbar__title">Все запасы</div>
             <span class="ess-toolbar__separator"></span>
             <div class="ess-toolbar__count">{{supplies?.length}}</div>
+        </div>
+        <div class="ess-toolbar__group">
+            <button tuiIconButton icon="tuiIconPlusLarge" size="m" appearance="accent" routerLink="/admin/new-supply"
+                tuiHint="Добавить запас" [tuiHintShowDelay]="0" [tuiHintHideDelay]="0"
+            ></button>
         </div>
     </div>
 

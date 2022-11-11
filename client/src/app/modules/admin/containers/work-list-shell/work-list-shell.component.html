@@ -1,9 +1,14 @@
-<tui-loader *tuiLet="work$ | async as work" [overlay]="true" [showLoader]="!work">
+<tui-loader *tuiLet="work$ | async as work" [overlay]="true" [showLoader]="!work" class="ess-card-shadow">
     <div class="ess-toolbar">
         <div class="ess-toolbar__group">
             <div class="ess-toolbar__title">Все услуги</div>
             <span class="ess-toolbar__separator"></span>
             <div class="ess-toolbar__count">{{work?.length}}</div>
+        </div>
+        <div class="ess-toolbar__group">
+            <button tuiIconButton icon="tuiIconPlusLarge" size="m" appearance="accent" routerLink="/admin/new-work"
+                tuiHint="Добавить услугу" [tuiHintShowDelay]="0" [tuiHintHideDelay]="0"
+            ></button>
         </div>
     </div>
 

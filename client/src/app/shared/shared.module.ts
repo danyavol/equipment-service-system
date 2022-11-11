@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TuiTableModule } from '@taiga-ui/addon-table';
 import { TuiLetModule } from '@taiga-ui/cdk';
 import { TuiButtonModule, TuiErrorModule, TuiTextfieldControllerModule, TuiScrollbarModule, TuiSvgModule, TuiLoaderModule, TuiTooltipModule, TuiHintModule } from '@taiga-ui/core';
-import { TuiFieldErrorPipeModule, TuiInputModule, TuiInputPasswordModule, TuiInputPhoneModule, TuiTabsModule, TuiTagModule, TuiTextAreaModule, TuiToggleModule } from '@taiga-ui/kit';
+import { TuiFieldErrorPipeModule, TuiInputCountModule, TuiInputModule, TuiInputNumberModule, TuiInputPasswordModule, TuiInputPhoneModule, TuiTabsModule, TuiTagModule, TuiTextAreaModule, TuiToggleModule } from '@taiga-ui/kit';
 import { BadgeModule } from 'primeng/badge';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
@@ -49,6 +49,8 @@ const TAIGA_MODULES = [
     TuiLoaderModule,
     TuiTooltipModule,
     TuiHintModule,
+    TuiInputNumberModule,
+    TuiInputCountModule,
 ];
 
 @NgModule({

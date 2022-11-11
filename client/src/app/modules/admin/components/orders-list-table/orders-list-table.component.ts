@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ColumnConfig } from 'src/app/shared/interfaces/table.interface';
 import { Order } from '../../interfaces/order.interface';
 
@@ -9,7 +9,6 @@ import { Order } from '../../interfaces/order.interface';
 })
 export class OrdersListTableComponent {
     @Input() orders: Order[] = [];
-    @Output() edit = new EventEmitter<string>();
 
     readonly columns: ColumnConfig<Order>[] = [
         { columnName: 'status', title: 'Статус' },
@@ -21,8 +20,4 @@ export class OrdersListTableComponent {
         { columnName: 'updatedAt', title: 'Обновлено' },
         { columnName: 'actions', sorting: false },
     ];
-
-    onEdit(order: Order) {
-        this.edit.emit(order.id);
-    }
 }

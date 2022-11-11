@@ -1,5 +1,13 @@
-.ess-footer-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: flex-end;
+@use '@taiga-ui/core/styles/taiga-ui-local.scss' as tui;
+
+.ess-card {
+    @extend .ess-card-shadow;
+
+    background-color: white;
+    padding: 2rem;
+}
+
+.ess-card-shadow {
+    @include tui.shadow(1);
+    border-radius: var(--tui-radius-m);
 }

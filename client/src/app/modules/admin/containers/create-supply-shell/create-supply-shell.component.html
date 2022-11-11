@@ -1,14 +1,16 @@
-<p-card header="Добавить запас" subheader="Заполните форму, чтобы добавить новый запас"
-    styleClass="p-card-shadow" class="order-card">
+<div class="tui-container tui-container_adaptive ess-card">
+    <div class="tui-form__header">
+        Добавить запас
+        <!-- Заполните форму, чтобы добавить новый запас -->
+    </div>
 
     <ess-supply-form [form]="supplyForm"></ess-supply-form>
 
-    <ng-template pTemplate="footer">
-        <div class="ess-footer-buttons">
-            <p-button label="Добавить" (click)="submit()" styleClass="p-button-outlined" [loading]="isLoading" [disabled]="supplyForm.invalid"></p-button>
+    <div class="tui-form__buttons tui-form__buttons_align_end">
+        <button class="tui-form__button" tuiButton appearance="secondary" (click)="submit()" [showLoader]="isLoading">Добавить</button>
+        <button class="tui-form__button" tuiButton icon="tuiIconCheckLarge" (click)="submit(true)" [showLoader]="isLoading">Добавить и выйти</button>
+    </div>
+</div>
 
-            <p-button label="Добавить и выйти" icon="pi pi-check" (click)="submit(true)" [loading]="isLoading" [disabled]="supplyForm.invalid"></p-button>
-        </div>
-    </ng-template>
-</p-card>
+
 

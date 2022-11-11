@@ -36,7 +36,7 @@ export class HeaderComponent {
 
         router.events.pipe(untilDestroyed(this)).subscribe(event => {
             if (event instanceof NavigationEnd) {
-                this.setActiveItemIndex(event.url);
+                this.setActiveItemIndex(event.urlAfterRedirects);
             }
         });
     }
