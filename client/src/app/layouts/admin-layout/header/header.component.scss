@@ -1,25 +1,15 @@
-:host {
-    margin: 1rem;
-    display: block;
-
-    ::ng-deep {
-        .p-menubar {
-            gap: 10px;
-        }
-
-        .p-menubar-root-list {
-            gap: 5px;
-        }
-    }
-}
-
+@use '@taiga-ui/core/styles/taiga-ui-local.scss' as tui;
 
 .header-wrapper {
+    @include tui.shadow(4);
+
     display: flex;
     justify-content: space-between;
     background-color: white;
     align-items: center;
-    padding: 0 1rem;
+    padding: 0 2.5rem;
+    position: relative;
+    z-index: 10;
 
     .left-side {
         display: flex;
