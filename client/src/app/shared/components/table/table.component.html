@@ -14,7 +14,7 @@
                 <ng-container *ngFor="let column of columns">
                     <!-- Cell tamplate -->
                     <ng-container *ngIf="cellTemplatesMap.get(column.columnName) as cellTemplate; else rawDataTemplate">
-                        <td *tuiCell="$any(column.columnName)" tuiTd [style.width]="cellTemplate.width">
+                        <td *tuiCell="$any(column.columnName)" tuiTd [style.width]="cellTemplate.width" [style.boxSizing]="'content-box'">
                             <ng-container [ngTemplateOutlet]="cellTemplate.template"
                                 [ngTemplateOutletContext]="{ $implicit: item }"
                             ></ng-container>

@@ -1,0 +1,11 @@
+@use '@taiga-ui/core/styles/taiga-ui-local.scss' as tui;
+
+[tuiWrapper][data-appearance='danger'] {
+    background: transparent;
+    color: var(--tui-negative);
+
+    @include tui.wrapper-hover {
+        background: var(--tui-error-bg);
+        color: var(--tui-negative-hover);
+    }
+}

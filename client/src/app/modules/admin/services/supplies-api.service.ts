@@ -24,4 +24,8 @@ export class SuppliesApiService {
     updateSupply(id: string, supply: SupplyFormRawValue) {
         return this.http.put<void>(`${environment.apiUrl}/supplies/${id}`, supply);
     }
+
+    deleteSupply(id: string) {
+        return this.http.delete<void>(`${environment.apiUrl}/supplies/${id}`);
+    }
 }

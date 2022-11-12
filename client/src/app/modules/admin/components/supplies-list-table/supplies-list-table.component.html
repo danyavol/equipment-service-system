@@ -8,8 +8,10 @@
     <ng-container *essCell="'supplyDate'; let supply">
         {{supply.supplyDate | date: "short"}}
     </ng-container>
-    <ng-container *essCell="'actions'; width: 0; let supply">
+    <div *essCell="'actions'; width: '69px'; let supply" class="actions-wrapper">
         <button tuiIconButton type="button" appearance="flat" icon="tuiIconEditLarge" size="s"
             shape="rounded" routerLink="/admin/supply/{{supply.id}}"></button>
-    </ng-container>
+        <button tuiIconButton type="button" appearance="danger" icon="tuiIconTrashLarge" size="s"
+            shape="rounded" (click)="onDelete(supply.id)" *ngIf="supply.availableAmount === supply.totalAmount"></button>
+    </div>
 </ess-table>

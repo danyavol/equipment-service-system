@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ColumnConfig } from 'src/app/shared/interfaces/table.interface';
 import { Supply } from '../../interfaces/supply.interface';
 
@@ -9,6 +9,7 @@ import { Supply } from '../../interfaces/supply.interface';
 })
 export class SuppliesListTableComponent {
     @Input() supplies: Supply[] = [];
+    @Output() delete = new EventEmitter<string>();
 
     readonly columns: ColumnConfig<Supply>[] = [
         { columnName: 'title', title: 'Название' },
@@ -17,4 +18,8 @@ export class SuppliesListTableComponent {
         { columnName: 'supplyDate', title: 'Дата поставки' },
         { columnName: 'actions', sorting: false }
     ];
+
+    onDelete(id: string) {
+        this.delete.emit(id);
+    }
 }

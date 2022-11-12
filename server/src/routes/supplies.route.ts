@@ -115,3 +115,28 @@ supplies.put('/:id', async (req, res) => {
         handleError(res, e);
     }
 });
+
+supplies.delete('/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const oldSupply = await db.Supplies.findByPk(id, {
+            include: [
+                {
+                    model: Order,
+                    through: { attributes: [] },
+                    attributes: ['id']
+                }
+            ]
+        });
+        if (!oldSupply) return res.status(400).send('Supply with such id not found');
+
+        if (oldSupply.totalAmount !== oldSupply.availableAmount!)
+            return res.status(400).send('Can\'t delete supplies which were already used');
+
+        await db.Supplies.destroy({ where: { id }});
+        
+        res.sendStatus(204);
+    } catch (e) {
+        handleError(res, e);
+    }
+})

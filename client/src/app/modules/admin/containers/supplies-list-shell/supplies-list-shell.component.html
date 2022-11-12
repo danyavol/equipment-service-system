@@ -1,4 +1,4 @@
-<tui-loader *tuiLet="supplies$ | async as supplies" [overlay]="true" [showLoader]="!supplies" class="ess-card-shadow">
+<tui-loader *tuiLet="supplies$ | async as supplies" [overlay]="true" [showLoader]="isLoading" class="ess-card-shadow">
     <div class="ess-toolbar">
         <div class="ess-toolbar__group">
             <div class="ess-toolbar__title">Все запасы</div>
@@ -12,5 +12,5 @@
         </div>
     </div>
 
-    <ess-supplies-list-table [supplies]="supplies || []"></ess-supplies-list-table>
+    <ess-supplies-list-table [supplies]="supplies || []" (delete)="onDelete($event)"></ess-supplies-list-table>
 </tui-loader>
