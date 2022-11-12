@@ -8,35 +8,62 @@ export default supplies;
 
 supplies.get('', async (req, res) => {
     try {
-        const supplies = await db.Supplies.findAll({ include: [
-            {
-                model: Order,
-                through: { attributes: [] },
-                attributes: ['id']
-            }
-        ]});
+        const supplies = await db.Supplies.findAll({
+            include: [
+                {
+                    model: Order,
+                    through: { attributes: [] },
+                    attributes: ['id']
+                },
+            ],
+            order: [
+                ['supplyDate', 'DESC']
+            ]
+        });
 
         res.send(supplies);
-    } catch(e) {
+    } catch (e) {
+        handleError(res, e);
+    }
+});
+
+supplies.get('/:id', async (req, res) => {
+    try {
+        const supply = await db.Supplies.findByPk(req.params.id, {
+            include: [
+                {
+                    model: Order,
+                    through: { attributes: [] },
+                    attributes: ['id']
+                }
+            ]
+        });
+
+        if (!supply) return res.status(400).send('Supply with such id not found');
+
+        res.send(supply);
+    } catch (e) {
         handleError(res, e);
     }
 });
 
 supplies.get('/available', async (req, res) => {
     try {
-        const supplies = await db.Supplies.findAll({ include: [
-            {
-                model: Order,
-                through: { attributes: [] },
-                attributes: ['id']
-            }
-        ]});
+        const supplies = await db.Supplies.findAll({
+            include: [
+                {
+                    model: Order,
+                    through: { attributes: [] },
+                    attributes: ['id']
+                }
+            ]
+        });
         const filteredSupplies = supplies.filter(
             s => s.availableAmount ? s.availableAmount > 0 : false
         );
-        
+
         res.send(filteredSupplies);
-    } catch(e) {
+    } catch (e) {
         handleError(res, e);
     }
 });
@@ -52,7 +79,39 @@ supplies.post('', async (req, res) => {
         }, {});
 
         res.sendStatus(204);
-    } catch(e) {
+    } catch (e) {
         handleError(res, e);
     }
-})
+});
+
+supplies.put('/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { title, pieceCost, totalAmount } = req.body;
+
+        const oldSupply = await db.Supplies.findByPk(req.params.id, {
+            include: [
+                {
+                    model: Order,
+                    through: { attributes: [] },
+                    attributes: ['id']
+                }
+            ]
+        });
+        if (!oldSupply) return res.status(400).send('Supply with such id not found');
+
+        const usedAmount = oldSupply.totalAmount - oldSupply.availableAmount!;
+        if (usedAmount > totalAmount) return res.status(400).send('Used amount more than total amount');
+
+        await db.Supplies.update({
+            title,
+            pieceCost,
+            totalAmount,
+            supplyDate: new Date()
+        }, { where: { id } });
+
+        res.sendStatus(204);
+    } catch (e) {
+        handleError(res, e);
+    }
+});

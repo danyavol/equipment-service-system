@@ -11,3 +11,15 @@
     @include tui.shadow(1);
     border-radius: var(--tui-radius-m);
 }
+
+.ess-card-title {
+    font: var(--tui-font-heading-4);
+    margin-bottom: 2rem;
+
+    + .ess-card-subtitle {
+        font: var(--tui-font-text-m);
+        color: var(--tui-base-07);
+        margin-top: -1rem;
+        margin-bottom: 2rem;
+    }
+}

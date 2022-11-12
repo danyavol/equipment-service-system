@@ -1,8 +1,6 @@
 <div class="tui-container tui-container_adaptive ess-card">
-    <div class="tui-form__header">
-        Добавить запас
-        <!-- Заполните форму, чтобы добавить новый запас -->
-    </div>
+    <div class="ess-card-title">Добавить запас</div>
+    <div class="ess-card-subtitle">Заполните форму, чтобы добавить новый запас</div>
 
     <ess-supply-form [form]="supplyForm"></ess-supply-form>
 
@@ -11,6 +9,4 @@
         <button class="tui-form__button" tuiButton icon="tuiIconCheckLarge" (click)="submit(true)" [showLoader]="isLoading">Добавить и выйти</button>
     </div>
 </div>
-
-
 

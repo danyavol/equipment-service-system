@@ -10,5 +10,9 @@ export async function insertOrdersSupplies() {
             orderId: "eba7aa7d-acb3-4cf1-9c63-ef0d16ed98ab",
             supplyId: "fa0b7564-beb0-49d7-972f-3a4a7fafd0e0"
         },
+        {
+            orderId: "6e15d4c0-57a3-4f83-a563-6f3b8b9a2189",
+            supplyId: "3b8a64e4-0e42-4fef-a8e0-6fc39f40668e"
+        }
     ]);
 }

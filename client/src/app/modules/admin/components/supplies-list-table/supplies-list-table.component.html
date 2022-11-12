@@ -1,8 +1,15 @@
 <ess-table [dataset]="supplies" [columns]="columns">
+    <ng-container *essCell="'pieceCost'; let supply">
+        {{supply.pieceCost}} р.
+    </ng-container>
     <ng-container *essCell="'availableAmount'; let supply">
         {{supply.availableAmount}} / {{supply.totalAmount}}
     </ng-container>
     <ng-container *essCell="'supplyDate'; let supply">
         {{supply.supplyDate | date: "short"}}
+    </ng-container>
+    <ng-container *essCell="'actions'; width: 0; let supply">
+        <button tuiIconButton type="button" appearance="flat" icon="tuiIconEditLarge" size="s"
+            shape="rounded" routerLink="/admin/supply/{{supply.id}}"></button>
     </ng-container>
 </ess-table>

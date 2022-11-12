@@ -33,6 +33,13 @@ export async function insertOrders() {
             description: "Замена стекла телефона Samsung Galaxy",
         },
         {
+            id: "6e15d4c0-57a3-4f83-a563-6f3b8b9a2189",
+            clientName: "Александр",
+            phoneNumber: "+375295555555",
+            status: Status.InProcess,
+            description: "Переустановка Windows 10",
+        },
+        {
             id: "e50b0a5f-33dd-4f44-b556-41f2e19baa2e",
             clientName: "Дмитрий",
             phoneNumber: "+375291267567",

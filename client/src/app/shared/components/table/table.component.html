@@ -12,14 +12,21 @@
         <tbody *tuiLet="dataset | tuiTableSort as sortedDataset" tuiTbody [data]="sortedDataset" [open]="true">
             <tr *ngFor="let item of sortedDataset" tuiTr>
                 <ng-container *ngFor="let column of columns">
-                    <td *tuiCell="$any(column.columnName)" tuiTd>
-                        <ng-container
-                            *ngIf="cellTemplatesMap.get(column.columnName) as cellTemplate; else rawDataTemplate"
-                            [ngTemplateOutlet]="cellTemplate"
-                            [ngTemplateOutletContext]="{ $implicit: item }"
-                        ></ng-container>
-                    </td>
-                    <ng-template #rawDataTemplate>{{item[column.columnName]}}</ng-template>
+                    <!-- Cell tamplate -->
+                    <ng-container *ngIf="cellTemplatesMap.get(column.columnName) as cellTemplate; else rawDataTemplate">
+                        <td *tuiCell="$any(column.columnName)" tuiTd [style.width]="cellTemplate.width">
+                            <ng-container [ngTemplateOutlet]="cellTemplate.template"
+                                [ngTemplateOutletContext]="{ $implicit: item }"
+                            ></ng-container>
+                        </td>
+                    </ng-container>
+
+                    <!-- Simple cell value -->
+                    <ng-template #rawDataTemplate>
+                        <td *tuiCell="$any(column.columnName)" tuiTd>
+                            {{item[column.columnName]}}
+                        </td>
+                    </ng-template>
                 </ng-container>
             </tr>
         </tbody>

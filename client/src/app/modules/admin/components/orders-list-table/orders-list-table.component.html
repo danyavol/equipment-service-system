@@ -13,7 +13,7 @@
     <ng-container *essCell="'updatedAt'; let order">
         {{order.updatedAt | date: "short"}}
     </ng-container>
-    <ng-container *essCell="'actions'; let order">
+    <ng-container *essCell="'actions'; width: 0; let order">
         <button tuiIconButton type="button" appearance="flat" icon="tuiIconEditLarge" size="s"
             shape="rounded" routerLink="/admin/order/{{order.id}}"></button>
     </ng-container>

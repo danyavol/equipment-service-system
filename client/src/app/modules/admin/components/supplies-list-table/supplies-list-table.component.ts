@@ -11,9 +11,10 @@ export class SuppliesListTableComponent {
     @Input() supplies: Supply[] = [];
 
     readonly columns: ColumnConfig<Supply>[] = [
-        { columnName: 'title', title: 'Название', sorting: true },
-        { columnName: 'pieceCost', title: 'Цена за шт.', sorting: true },
-        { columnName: 'availableAmount', title: 'В наличии', sorting: true },
-        { columnName: 'supplyDate', title: 'Дата поставки', sorting: true },
+        { columnName: 'title', title: 'Название' },
+        { columnName: 'pieceCost', title: 'Цена за шт.' },
+        { columnName: 'availableAmount', title: 'В наличии' },
+        { columnName: 'supplyDate', title: 'Дата поставки' },
+        { columnName: 'actions', sorting: false }
     ];
 }

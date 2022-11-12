@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { finalize } from 'rxjs';
+import { NotificationService } from 'src/app/services/notification.service';
 import { SupplyFormConfig } from '../../components/supply-form/supply-form.config';
 import { SuppliesApiService } from '../../services/supplies-api.service';
 
@@ -20,7 +21,8 @@ export class CreateSupplyShellComponent {
     constructor(
         private apiService: SuppliesApiService,
         private cdr: ChangeDetectorRef,
-        private router: Router
+        private router: Router,
+        private notification: NotificationService
     ) { }
 
     submit(andExit: boolean = false){
@@ -43,10 +45,10 @@ export class CreateSupplyShellComponent {
                     } else {
                         this.supplyForm.reset();
                     }
-                    // TODO: Success notice
+                    this.notification.success('Запас успешно добавлен');
                 },
                 error: () => {
-                    // TODO: Error message
+                    this.notification.error('Произошла ошибка во время добавления запаса');
                 }
             });
     }

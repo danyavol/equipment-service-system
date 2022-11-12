@@ -28,14 +28,17 @@ export class TableComponent<T extends Record<string, any>> implements AfterConte
     @ContentChildren(CellContentDirective) cellTemplates?: QueryList<CellContentDirective<T>>;
 
     tableFields: string[] = [];
-    cellTemplatesMap: Map<keyof T, TemplateRef<unknown>> = new Map();
+    cellTemplatesMap: Map<keyof T, { template: TemplateRef<unknown>, width: string | number }> = new Map();
 
     private _columns: ParsedColumnConfig<T>[] = [];
 
     ngAfterContentInit(): void {
         this.cellTemplates?.forEach(cellTemplate => {
             if (cellTemplate.essCell)
-                this.cellTemplatesMap.set(cellTemplate.essCell, cellTemplate.templateRef);
+                this.cellTemplatesMap.set(cellTemplate.essCell, {
+                    template: cellTemplate.templateRef,
+                    width: cellTemplate.essCellWidth
+                });
         });
     }
 

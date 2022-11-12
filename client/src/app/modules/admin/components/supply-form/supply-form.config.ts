@@ -7,13 +7,13 @@ export type SupplyFormRawValue = FormGroupRawValue<SupplyFormConfig>;
 
 export class SupplyFormConfig {
     title: FormControl<string>;
-    pieceCost: FormControl<number | null>;
+    pieceCost: FormControl<number>;
     totalAmount: FormControl<number>;
 
     constructor(value: SupplyFormValue = {}) {
-        const fb = new FormBuilder();
-        this.title = fb.nonNullable.control(value.title ?? '', [Validators.required]);
-        this.pieceCost = fb.control(value.pieceCost ?? null, [Validators.required, Validators.min(0)]);
-        this.totalAmount = fb.nonNullable.control(value.totalAmount ?? 1, [Validators.required, Validators.min(1)])
+        const fb = new FormBuilder().nonNullable;
+        this.title = fb.control(value.title ?? '', [Validators.required]);
+        this.pieceCost = fb.control(value.pieceCost ?? 0, [Validators.required, Validators.min(0)]);
+        this.totalAmount = fb.control(value.totalAmount ?? 1, [Validators.required, Validators.min(1)])
     }
 }

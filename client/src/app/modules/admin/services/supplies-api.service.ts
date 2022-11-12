@@ -16,4 +16,12 @@ export class SuppliesApiService {
     createSupply(supply: SupplyFormRawValue) {
         return this.http.post<void>(`${environment.apiUrl}/supplies`, supply);
     }
+
+    getSupply(id: string) {
+        return this.http.get<Supply>(`${environment.apiUrl}/supplies/${id}`);
+    }
+
+    updateSupply(id: string, supply: SupplyFormRawValue) {
+        return this.http.put<void>(`${environment.apiUrl}/supplies/${id}`, supply);
+    }
 }
