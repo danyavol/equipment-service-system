@@ -1,4 +1,4 @@
-import { CreationOptional, DataTypes, InferAttributes, InferCreationAttributes, Model, NonAttribute, Sequelize } from "sequelize";
+import { CreationOptional, DataTypes, InferAttributes, InferCreationAttributes, Model, NonAttribute, Order, Sequelize } from "sequelize";
 import { OrderWork } from "./order-work.model";
 
 
@@ -6,8 +6,10 @@ export class Work extends Model<InferAttributes<Work>, InferCreationAttributes<W
     declare id: CreationOptional<string>;
     declare title: string;
     declare cost: number;
+    declare updatedAt: CreationOptional<Date>;
 
     declare ordersWork?: NonAttribute<OrderWork>;
+    declare orders?: NonAttribute<Order[]>;
 }
 
 export function createWorkModel(sequelize: Sequelize) {
@@ -24,10 +26,11 @@ export function createWorkModel(sequelize: Sequelize) {
         cost: {
             type: DataTypes.DOUBLE,
             allowNull: false
-        }
+        },
+        updatedAt: DataTypes.DATE,
     }, {
         sequelize,
         modelName: "work",
-        timestamps: false
+        createdAt: false
     });
 }

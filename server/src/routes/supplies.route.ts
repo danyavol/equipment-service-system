@@ -139,4 +139,4 @@ supplies.delete('/:id', async (req, res) => {
     } catch (e) {
         handleError(res, e);
     }
-})
+});

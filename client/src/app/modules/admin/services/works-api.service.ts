@@ -16,4 +16,16 @@ export class WorksApiService {
     createWork(work: WorkFormRawValue) {
         return this.http.post<void>(`${environment.apiUrl}/work`, work);
     }
+
+    updateWork(id: string, work: WorkFormRawValue) {
+        return this.http.put<void>(`${environment.apiUrl}/work/${id}`, work);
+    }
+
+    getWork(id: string) {
+        return this.http.get<Work>(`${environment.apiUrl}/work/${id}`);
+    }
+
+    deleteWork(id: string) {
+        return this.http.delete<Work>(`${environment.apiUrl}/work/${id}`);
+    }
 }

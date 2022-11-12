@@ -50,6 +50,6 @@ export class HeaderComponent {
     }
 
     private isLinkActive(currentUrl: string, link: string): boolean {
-        return currentUrl.startsWith(link);
+        return currentUrl.startsWith(link); // TODO: Fix this method
     }
 }

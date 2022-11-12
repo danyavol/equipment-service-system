@@ -2,5 +2,11 @@
     <ng-container *essCell="'cost'; let work">
         {{work.cost}} р.
     </ng-container>
+    <div *essCell="'actions'; width: '69px'; let work" class="actions-wrapper">
+        <button tuiIconButton type="button" appearance="flat" icon="tuiIconEditLarge" size="s"
+            shape="rounded" routerLink="/admin/work/{{work.id}}"></button>
+        <button tuiIconButton type="button" appearance="danger" icon="tuiIconTrashLarge" size="s"
+            shape="rounded" (click)="onDelete(work.id)" *ngIf="!work.orders.length"></button>
+    </div>
 </ess-table>
 

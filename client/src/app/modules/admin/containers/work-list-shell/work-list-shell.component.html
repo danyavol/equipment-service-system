@@ -1,4 +1,4 @@
-<tui-loader *tuiLet="work$ | async as work" [overlay]="true" [showLoader]="!work" class="ess-card-shadow">
+<tui-loader *tuiLet="work$ | async as work" [overlay]="true" [showLoader]="isLoading" class="ess-card-shadow">
     <div class="ess-toolbar">
         <div class="ess-toolbar__group">
             <div class="ess-toolbar__title">Все услуги</div>
@@ -12,5 +12,5 @@
         </div>
     </div>
 
-    <ess-work-list-table [work]="work || []"></ess-work-list-table>
+    <ess-work-list-table [work]="work || []" (delete)="onDelete($event)"></ess-work-list-table>
 </tui-loader>

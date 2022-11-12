@@ -9,11 +9,11 @@ import { SuppliesApiService } from '../../services/supplies-api.service';
 
 @UntilDestroy()
 @Component({
-    selector: 'ess-edit-supply',
-    templateUrl: './edit-supply.component.html',
-    styleUrls: ['./edit-supply.component.scss']
+    selector: 'ess-edit-supply-shell',
+    templateUrl: './edit-supply-shell.component.html',
+    styleUrls: ['./edit-supply-shell.component.scss']
 })
-export class EditSupplyComponent {
+export class EditSupplyShellComponent {
     supplyForm = new FormGroup(new SupplyFormConfig());
     supplyId: string = this.route.snapshot.params['id'];
     isLoading = true;

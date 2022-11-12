@@ -1,0 +1,16 @@
+<div class="tui-container tui-container_adaptive">
+    <tui-loader class="ess-card" [overlay]="true" [showLoader]="isLoading">
+        <div class="ess-card-title">Изменить услугу</div>
+
+        <ess-work-form [form]="workForm"></ess-work-form>
+
+        <div class="tui-form__buttons tui-form__buttons_align_end">
+            <button class="tui-form__button" tuiButton appearance="secondary"
+                (click)="workForm.reset()" [disabled]="workForm.pristine">Сброс</button>
+            <button class="tui-form__button" tuiButton icon="tuiIconCheckLarge"
+                (click)="submit()" [disabled]="workForm.pristine">Сохранить</button>
+        </div>
+    </tui-loader>
+</div>
+
+
