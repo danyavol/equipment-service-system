@@ -1,1 +1,13 @@
-<p>create-work-shell works!</p>
+<div class="tui-container tui-container_adaptive">
+    <tui-loader class="ess-card" [overlay]="true" [showLoader]="isLoading">
+        <div class="ess-card-title">Добавить услугу</div>
+        <div class="ess-card-subtitle">Заполните форму, чтобы добавить новую услугу</div>
+
+        <ess-work-form [form]="workForm"></ess-work-form>
+
+        <div class="tui-form__buttons tui-form__buttons_align_end">
+            <button class="tui-form__button" tuiButton appearance="secondary" (click)="submit()">Добавить</button>
+            <button class="tui-form__button" tuiButton icon="tuiIconCheckLarge" (click)="submit(true)">Добавить и выйти</button>
+        </div>
+    </tui-loader>
+</div>

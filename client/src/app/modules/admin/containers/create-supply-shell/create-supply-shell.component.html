@@ -1,12 +1,13 @@
-<div class="tui-container tui-container_adaptive ess-card">
-    <div class="ess-card-title">Добавить запас</div>
-    <div class="ess-card-subtitle">Заполните форму, чтобы добавить новый запас</div>
+<div class="tui-container tui-container_adaptive">
+    <tui-loader class="ess-card" [overlay]="true" [showLoader]="isLoading">
+        <div class="ess-card-title">Добавить запас</div>
+        <div class="ess-card-subtitle">Заполните форму, чтобы добавить новый запас</div>
 
-    <ess-supply-form [form]="supplyForm"></ess-supply-form>
+        <ess-supply-form [form]="supplyForm"></ess-supply-form>
 
-    <div class="tui-form__buttons tui-form__buttons_align_end">
-        <button class="tui-form__button" tuiButton appearance="secondary" (click)="submit()" [showLoader]="isLoading">Добавить</button>
-        <button class="tui-form__button" tuiButton icon="tuiIconCheckLarge" (click)="submit(true)" [showLoader]="isLoading">Добавить и выйти</button>
-    </div>
+        <div class="tui-form__buttons tui-form__buttons_align_end">
+            <button class="tui-form__button" tuiButton appearance="secondary" (click)="submit()">Добавить</button>
+            <button class="tui-form__button" tuiButton icon="tuiIconCheckLarge" (click)="submit(true)">Добавить и выйти</button>
+        </div>
+    </tui-loader>
 </div>
-

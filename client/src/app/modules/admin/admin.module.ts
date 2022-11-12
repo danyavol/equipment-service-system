@@ -22,6 +22,7 @@ import { SupplyFormComponent } from './components/supply-form/supply-form.compon
 import { CreateOrderShellComponent } from './containers/create-order-shell/create-order-shell.component';
 import { CreateWorkShellComponent } from './containers/create-work-shell/create-work-shell.component';
 import { EditSupplyComponent } from './containers/edit-supply/edit-supply.component';
+import { WorkFormComponent } from './components/work-form/work-form.component';
 
 
 
@@ -39,7 +40,8 @@ import { EditSupplyComponent } from './containers/edit-supply/edit-supply.compon
         SupplyFormComponent,
         CreateOrderShellComponent,
         CreateWorkShellComponent,
-        EditSupplyComponent
+        EditSupplyComponent,
+        WorkFormComponent
     ],
     imports: [
         CommonModule,
