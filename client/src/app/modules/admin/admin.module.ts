@@ -4,7 +4,7 @@ import { AdminComponent } from './admin.component';
 import { AdminLayoutModule } from 'src/app/layouts/admin-layout/admin-layout.module';
 import { AdminRoutingModule } from './admin-routing.module';
 import { OrdersListShellComponent } from './containers/orders-list-shell/orders-list-shell.component';
-import { OrdersApiService } from './services/orders-api.service';
+import { AdminOrdersApiService } from './services/admin-orders-api.service';
 import { OrdersListTableComponent } from './components/orders-list-table/orders-list-table.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { SuppliesListShellComponent } from './containers/supplies-list-shell/supplies-list-shell.component';
@@ -55,7 +55,7 @@ import { EditWorkShellComponent } from './containers/edit-work-shell/edit-work-s
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
         AuthService,
-        OrdersApiService,
+        AdminOrdersApiService,
         SuppliesApiService,
         WorksApiService,
 

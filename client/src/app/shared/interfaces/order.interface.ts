@@ -1,4 +1,4 @@
-import { OrderStatus } from "src/app/shared/constants/status.constant";
+import { OrderStatus } from "../constants/status.constant";
 
 export interface Order {
     id: string,

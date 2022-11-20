@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { combineLatest, map, startWith } from 'rxjs';
 import { OrderStatus } from 'src/app/shared/constants/status.constant';
-import { OrdersApiService } from '../../services/orders-api.service';
+import { AdminOrdersApiService } from '../../services/admin-orders-api.service';
 
 @Component({
     selector: 'ess-orders-list-shell',
@@ -25,5 +25,5 @@ export class OrdersListShellComponent {
         })
     );
 
-    constructor(private apiService: OrdersApiService) { }
+    constructor(private apiService: AdminOrdersApiService) { }
 }

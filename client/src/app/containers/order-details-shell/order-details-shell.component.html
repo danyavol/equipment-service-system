@@ -1,0 +1,57 @@
+<div class="tui-container tui-container_adaptive">
+    <tui-island size="l">
+        <h2 class="tui-island__title">Ваша заявка</h2>
+        <p class="tui-island__paragraph">
+            {{ orderDetails.description }}
+        </p>
+        <p>
+            <ess-order-status-badge [status]="orderDetails.status" size="l"></ess-order-status-badge>
+        </p>
+        <label tuiLabel="Заказчик">{{orderDetails.clientName}}</label>
+        <label tuiLabel="Телефон">{{orderDetails.phoneNumber}}</label>
+        <label tuiLabel="Email">{{orderDetails.email}}</label>
+        <label tuiLabel="Дата заявки">{{orderDetails.createdAt | date: "short"}}</label>
+        <label tuiLabel="Дата обновления">{{orderDetails.updatedAt | date: "short"}}</label>
+
+        <h3 class="cost-table__title">Выполненные услуги</h3>
+        <table class="tui-table tui-table_size_s tui-table_layout_fixed">
+            <tbody>
+                <tr class="tui-table__tr tui-table__tr_hover_disabled">
+                    <th class="tui-table__th tui-table__th_first">Наименование</th>
+                    <th class="tui-table__th tui-table__th_last cost-col">Стоимость</th>
+                </tr>
+                <tr class="tui-table__tr tui-table__tr_border_none tui-table__tr_hover_disabled"
+                    *ngFor="let work of orderDetails.works">
+                    <td class="tui-table__td tui-table__td_first">{{work.title}}</td>
+                    <td class="tui-table__td tui-table__td_last">{{work.cost}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="cost-table__title">Использованные запасы</h3>
+        <table class="tui-table tui-table_size_s tui-table_layout_fixed">
+            <tbody>
+                <tr class="tui-table__tr tui-table__tr_hover_disabled">
+                    <th class="tui-table__th tui-table__th_first">Наименование</th>
+                    <th class="tui-table__th tui-table__th_last cost-col">Стоимость</th>
+                </tr>
+                <tr class="tui-table__tr tui-table__tr_border_none tui-table__tr_hover_disabled"
+                    *ngFor="let supply of orderDetails.supplies">
+                    <td class="tui-table__td tui-table__td_first">{{supply.title}}</td>
+                    <td class="tui-table__td tui-table__td_last">{{supply.pieceCost}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="tui-table tui-table_layout_fixed total-row">
+            <tbody>
+                <tr class="tui-table__tr tui-table__tr_border_none tui-table__tr_hover_disabled tui-table__tr_border_top">
+                    <th class="tui-table__th tui-table__th_first tui-table__th_font-size_l">ИТОГО</th>
+                    <td class="tui-table__td tui-table__td_last cost-col tui-table__td_font-size_l">{{totalPrice}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </tui-island>
+</div>
+

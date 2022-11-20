@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TuiTableModule } from '@taiga-ui/addon-table';
 import { TuiLetModule } from '@taiga-ui/cdk';
-import { TuiButtonModule, TuiErrorModule, TuiHintModule, TuiLoaderModule, TuiScrollbarModule, TuiSvgModule, TuiTextfieldControllerModule, TuiTooltipModule } from '@taiga-ui/core';
-import { TuiFieldErrorPipeModule, TuiInputCountModule, TuiInputModule, TuiInputNumberModule, TuiInputPasswordModule, TuiInputPhoneModule, TuiTabsModule, TuiTagModule, TuiTextAreaModule, TuiToggleModule } from '@taiga-ui/kit';
+import { TuiButtonModule, TuiErrorModule, TuiHintModule, TuiLabelModule, TuiLoaderModule, TuiScrollbarModule, TuiSvgModule, TuiTextfieldControllerModule, TuiTooltipModule } from '@taiga-ui/core';
+import { TuiFieldErrorPipeModule, TuiInputCountModule, TuiInputModule, TuiInputNumberModule, TuiInputPasswordModule, TuiInputPhoneModule, TuiIslandModule, TuiTabsModule, TuiTagModule, TuiTextAreaModule, TuiToggleModule } from '@taiga-ui/kit';
 import { TUI_VALIDATION_ERRORS_PROVIDER } from '../providers/validation-errors.provider';
 import { BasicOrderFormComponent } from './components/basic-order-form/basic-order-form.component';
 import { OrderStatusBadgeComponent } from './components/order-status-badge/order-status-badge.component';
@@ -33,6 +33,8 @@ const TAIGA_MODULES = [
     TuiHintModule,
     TuiInputNumberModule,
     TuiInputCountModule,
+    TuiIslandModule,
+    TuiLabelModule,
 ];
 
 @NgModule({

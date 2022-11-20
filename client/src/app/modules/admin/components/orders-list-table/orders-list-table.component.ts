@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { Order } from 'src/app/shared/interfaces/order.interface';
 import { ColumnConfig } from 'src/app/shared/interfaces/table.interface';
-import { Order } from '../../interfaces/order.interface';
 
 @Component({
     selector: 'ess-orders-list-table',

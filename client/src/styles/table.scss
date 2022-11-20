@@ -1,0 +1,16 @@
+.tui-table_size_s {
+
+    .tui-table__td {
+        padding: 0.5rem 1rem;
+        height: 2rem;
+    }
+}
+
+.tui-table__td_first, .tui-table__th_first {
+    padding-left: 0 !important;
+}
+
+.tui-table__td_last, .tui-table__th_last {
+    padding-right: 0 !important;
+}
+

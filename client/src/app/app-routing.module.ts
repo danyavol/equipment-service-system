@@ -1,11 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CreateOrderComponent } from './modules/create-order/create-order.component';
+import { OrderDetailsShellComponent } from './containers/order-details-shell/order-details-shell.component';
+import { PublicCreateOrderShellComponent } from './containers/public-create-order-shell/public-create-order-shell.component';
+import { OrderResolver } from './resolvers/order.resolver';
 
 const routes: Routes = [
     {
         path: 'new-order',
-        component: CreateOrderComponent
+        component: PublicCreateOrderShellComponent
+    },
+    {
+        path: 'order/:orderId',
+        component: OrderDetailsShellComponent,
+        resolve: {
+            order: OrderResolver
+        }
     },
     {
         path: 'admin',
