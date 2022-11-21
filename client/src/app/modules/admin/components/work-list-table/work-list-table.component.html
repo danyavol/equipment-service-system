@@ -1,6 +1,6 @@
 <ess-table [dataset]="work" [columns]="columns">
     <ng-container *essCell="'cost'; let work">
-        {{work.cost}} р.
+        {{work.cost | essCurrency}}
     </ng-container>
     <div *essCell="'actions'; width: '69px'; let work" class="actions-wrapper">
         <button tuiIconButton type="button" appearance="flat" icon="tuiIconEditLarge" size="s"

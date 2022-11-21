@@ -1,6 +1,6 @@
 <ess-table [dataset]="supplies" [columns]="columns">
     <ng-container *essCell="'pieceCost'; let supply">
-        {{supply.pieceCost}} р.
+        {{supply.pieceCost | essCurrency}}
     </ng-container>
     <ng-container *essCell="'availableAmount'; let supply">
         {{supply.availableAmount}} / {{supply.totalAmount}}

@@ -13,8 +13,11 @@
     <ng-container *essCell="'updatedAt'; let order">
         {{order.updatedAt | date: "short"}}
     </ng-container>
-    <ng-container *essCell="'actions'; width: 0; let order">
+    <ng-container *essCell="'actions'; width: '69px'; let order" class="actions-wrapper">
         <button tuiIconButton type="button" appearance="flat" icon="tuiIconEditLarge" size="s"
             shape="rounded" routerLink="/admin/order/{{order.id}}"></button>
+
+        <button tuiIconButton type="button" appearance="flat" icon="tuiIconInfoCircleLarge" size="s"
+            shape="rounded" routerLink="/order/{{order.id}}"></button>
     </ng-container>
 </ess-table>

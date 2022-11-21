@@ -10,6 +10,7 @@ import { BasicOrderFormComponent } from './components/basic-order-form/basic-ord
 import { OrderStatusBadgeComponent } from './components/order-status-badge/order-status-badge.component';
 import { CellContentDirective } from './components/table/cell-content.component';
 import { TableComponent } from './components/table/table.component';
+import { CurrencyPipe } from './pipes/currency.pipe';
 
 
 const TAIGA_MODULES = [
@@ -42,7 +43,8 @@ const TAIGA_MODULES = [
         OrderStatusBadgeComponent,
         BasicOrderFormComponent,
         TableComponent,
-        CellContentDirective
+        CellContentDirective,
+        CurrencyPipe,
     ],
     imports: [
         CommonModule,
@@ -57,7 +59,8 @@ const TAIGA_MODULES = [
         OrderStatusBadgeComponent,
         BasicOrderFormComponent,
         TableComponent,
-        CellContentDirective
+        CellContentDirective,
+        CurrencyPipe
     ],
     providers: [
         TUI_VALIDATION_ERRORS_PROVIDER

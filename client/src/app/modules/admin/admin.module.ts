@@ -26,7 +26,6 @@ import { WorkFormComponent } from './components/work-form/work-form.component';
 import { EditWorkShellComponent } from './containers/edit-work-shell/edit-work-shell.component';
 
 
-
 @NgModule({
     declarations: [
         AdminComponent,
@@ -58,7 +57,6 @@ import { EditWorkShellComponent } from './containers/edit-work-shell/edit-work-s
         AdminOrdersApiService,
         SuppliesApiService,
         WorksApiService,
-
     ]
 })
 export class AdminModule { }
