@@ -1,1 +1,15 @@
-<p>create-order-shell works!</p>
+
+
+
+<div class="tui-container tui-container_adaptive">
+    <tui-loader class="ess-card" [overlay]="true" [showLoader]="isLoading">
+        <div class="ess-card-title">Создать заявку</div>
+
+        <ess-order-form [form]="form"></ess-order-form>
+
+        <div class="tui-form__buttons tui-form__buttons_align_end">
+            <button class="tui-form__button" tuiButton appearance="secondary" (click)="submit()">Создать</button>
+            <button class="tui-form__button" tuiButton icon="tuiIconCheckLarge" (click)="submit(true)">Создать и выйти</button>
+        </div>
+    </tui-loader>
+</div>

@@ -1,0 +1,94 @@
+<ng-container *ngIf="form" [formGroup]="form">
+
+    <div class="tui-form__row tui-form__row_multi-fields">
+        <div class="tui-form__multi-field">
+            <tui-select
+                formControlName="status"
+                tuiTextfieldSize="l"
+                [tuiTextfieldLabelOutside]="true"
+                [valueContent]="statusContent"
+            >
+                <tui-data-list-wrapper
+                    *tuiDataList
+                    [items]="statuses"
+                    [itemContent]="statusContent"
+                ></tui-data-list-wrapper>
+            </tui-select>
+
+            <ng-template #statusContent let-status>
+                <ess-order-status-badge [status]="status" size="l"></ess-order-status-badge>
+            </ng-template>
+        </div>
+        <div class="tui-form__multi-field flex-grow-2">
+            <tui-input formControlName="clientName">
+                Имя клиента
+                <span class="tui-required"></span>
+            </tui-input>
+            <tui-error formControlName="clientName" [error]="[] | tuiFieldError | async"></tui-error>
+        </div>
+    </div>
+
+    <div class="tui-form__row tui-form__row_multi-fields">
+        <div class="tui-form__multi-field">
+            <tui-input-phone formControlName="phoneNumber" countryCode="+375"
+                phoneMaskAfterCountryCode="(##) ###-##-##">
+                Номер телефона
+                <span class="tui-required"></span>
+            </tui-input-phone>
+            <tui-error formControlName="phoneNumber" [error]="[] | tuiFieldError | async"></tui-error>
+        </div>
+        <div class="tui-form__multi-field flex-grow-2">
+            <tui-input formControlName="email">
+                Электронная почта
+                <input tuiTextfield placeholder="example@gmail.com" type="email" />
+            </tui-input>
+            <tui-error formControlName="email" [error]="[] | tuiFieldError | async"></tui-error>
+        </div>
+    </div>
+
+    <div class="tui-form__row">
+        <tui-text-area formControlName="description" [expandable]="true" [maxLength]="512">
+            Описание
+            <span class="tui-required"></span>
+            <textarea tuiTextfield placeholder="Подробно опишите причину обращения"></textarea>
+        </tui-text-area>
+        <tui-error formControlName="description" [error]="[] | tuiFieldError | async"></tui-error>
+    </div>
+
+    <div class="tui-form__row tui-form__row_multi-fields">
+        <div class="tui-form__multi-field">
+            <!--
+                [editable]="false"
+                [stringify]="stringify"
+                [identityMatcher]="identityMatcher"
+             -->
+            <tui-multi-select
+                class="tui-space_top-2"
+                [editable]="true"
+                formControlName="supplies"
+
+                [tuiTextfieldLabelOutside]="true"
+                [tuiTextfieldCleaner]="true"
+            >
+                Выберите запасы для заказа
+                <tui-data-list
+                    *tuiDataList
+                    tuiMultiSelectGroup
+                >
+                    <button
+                        *ngFor="let item of supplies"
+                        tuiOption
+                        [value]="item"
+                    >
+                        {{ item.title }}
+                    </button>
+                </tui-data-list>
+            </tui-multi-select>
+        </div>
+        <div class="tui-form__multi-field"></div>
+    </div>
+</ng-container>
+
+
+
+
