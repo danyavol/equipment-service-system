@@ -27,6 +27,30 @@ supplies.get('', async (req, res) => {
     }
 });
 
+supplies.get('/available', async (req, res) => {
+    try {
+        const supplies = await db.Supplies.findAll({
+            include: [
+                {
+                    model: Order,
+                    through: { attributes: [] },
+                    attributes: ['id']
+                }
+            ],
+            order: [
+                ['supplyDate', 'DESC']
+            ]
+        });
+        const filteredSupplies = supplies.filter(
+            s => s.availableAmount ? s.availableAmount > 0 : false
+        );
+
+        res.send(filteredSupplies);
+    } catch (e) {
+        handleError(res, e);
+    }
+});
+
 supplies.get('/:id', async (req, res) => {
     try {
         const supply = await db.Supplies.findByPk(req.params.id, {
@@ -42,27 +66,6 @@ supplies.get('/:id', async (req, res) => {
         if (!supply) return res.status(400).send('Supply with such id not found');
 
         res.send(supply);
-    } catch (e) {
-        handleError(res, e);
-    }
-});
-
-supplies.get('/available', async (req, res) => {
-    try {
-        const supplies = await db.Supplies.findAll({
-            include: [
-                {
-                    model: Order,
-                    through: { attributes: [] },
-                    attributes: ['id']
-                }
-            ]
-        });
-        const filteredSupplies = supplies.filter(
-            s => s.availableAmount ? s.availableAmount > 0 : false
-        );
-
-        res.send(filteredSupplies);
     } catch (e) {
         handleError(res, e);
     }

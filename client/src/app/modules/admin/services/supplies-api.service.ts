@@ -13,6 +13,10 @@ export class SuppliesApiService {
         return this.http.get<Supply[]>(`${environment.apiUrl}/supplies`);
     }
 
+    getAvailableSupplies() {
+        return this.http.get<Supply[]>(`${environment.apiUrl}/supplies/available`);
+    }
+
     createSupply(supply: SupplyFormRawValue) {
         return this.http.post<void>(`${environment.apiUrl}/supplies`, supply);
     }

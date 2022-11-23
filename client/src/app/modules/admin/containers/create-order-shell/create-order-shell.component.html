@@ -1,11 +1,12 @@
-
-
-
-<div class="tui-container tui-container_adaptive">
-    <tui-loader class="ess-card" [overlay]="true" [showLoader]="isLoading">
+<div class="tui-container tui-container_adaptive" *tuiLet="orderData$ | async as orderData">
+    <tui-loader class="ess-card" [overlay]="true" [showLoader]="isLoading || !orderData">
         <div class="ess-card-title">Создать заявку</div>
 
-        <ess-order-form [form]="form"></ess-order-form>
+        <ess-order-form
+            [form]="form"
+            [supplies]="orderData?.supplies || []"
+            [works]="orderData?.works || []"
+        ></ess-order-form>
 
         <div class="tui-form__buttons tui-form__buttons_align_end">
             <button class="tui-form__button" tuiButton appearance="secondary" (click)="submit()">Создать</button>
