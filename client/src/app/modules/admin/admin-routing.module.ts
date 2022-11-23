@@ -5,6 +5,7 @@ import { AuthShellComponent } from './containers/auth-shell/auth-shell.component
 import { CreateOrderShellComponent } from './containers/create-order-shell/create-order-shell.component';
 import { CreateSupplyShellComponent } from './containers/create-supply-shell/create-supply-shell.component';
 import { CreateWorkShellComponent } from './containers/create-work-shell/create-work-shell.component';
+import { EditOrderShellComponent } from './containers/edit-order-shell/edit-order-shell.component';
 import { EditSupplyShellComponent } from './containers/edit-supply-shell/edit-supply-shell.component';
 import { EditWorkShellComponent } from './containers/edit-work-shell/edit-work-shell.component';
 import { OrdersListShellComponent } from './containers/orders-list-shell/orders-list-shell.component';
@@ -26,6 +27,10 @@ const routes: Routes = [
                 path: "new-order",
                 component: CreateOrderShellComponent
             },
+            {
+                path: "order/:id",
+                component: EditOrderShellComponent
+            },
 
             {
                 path: "supplies",
@@ -41,7 +46,7 @@ const routes: Routes = [
             },
 
             {
-                path: "work",
+                path: "works",
                 component: WorkListShellComponent
             },
             {

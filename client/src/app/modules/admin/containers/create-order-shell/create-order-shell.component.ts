@@ -28,7 +28,7 @@ export class CreateOrderShellComponent {
     constructor(
         private suppliesApiService: SuppliesApiService,
         private worksApiService: WorksApiService,
-        private ordersApiService: AdminOrdersApiService,
+        private adminOrdersApiService: AdminOrdersApiService,
         private notification: NotificationService,
         private router: Router,
         private cdr: ChangeDetectorRef
@@ -45,7 +45,6 @@ export class CreateOrderShellComponent {
                 }
             })
         );
-
     }
 
     submit(andExit: boolean = false) {
@@ -53,7 +52,7 @@ export class CreateOrderShellComponent {
         if (this.form.invalid) return;
 
         this.isLoading = true;
-        this.ordersApiService.createOrder(this.form.getRawValue())
+        this.adminOrdersApiService.createOrder(this.form.getRawValue())
             .pipe(
                 untilDestroyed(this),
                 finalize(() => {
@@ -64,14 +63,14 @@ export class CreateOrderShellComponent {
             .subscribe({
                 next: () => {
                     if (andExit) {
-                        this.router.navigate(['/admin/work']);
+                        this.router.navigate(['/admin/orders']);
                     } else {
                         this.form.reset();
                     }
-                    this.notification.success('Услуга успешно добавлена');
+                    this.notification.success('Заявки успешно добавлена');
                 },
                 error: () => {
-                    this.notification.error('Произошла ошибка во время добавления услуги');
+                    this.notification.error('Произошла ошибка во время создания заявки');
                 }
             });
     }

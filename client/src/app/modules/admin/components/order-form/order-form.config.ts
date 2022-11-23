@@ -5,14 +5,16 @@ import { FormGroupRawValue, FormGroupValue } from "src/app/shared/form.interface
 import { Supply } from "../../interfaces/supply.interface";
 import { Work } from "../../interfaces/work.interface";
 
+export type PartialSupply = Pick<Supply, 'id' | 'title' | 'pieceCost'>;
+export type PartialWork = Pick<Work, 'id' | 'title' | 'cost'>;
 
 export type OrderFormValue = FormGroupValue<OrderFormConfig>;
 export type OrderFormRawValue = FormGroupRawValue<OrderFormConfig>;
 
 export class OrderFormConfig extends BasicOrderFormConfig {
     status: FormControl<string>;
-    works: FormControl<Work[]>;
-    supplies: FormControl<Supply[]>;
+    works: FormControl<PartialWork[]>;
+    supplies: FormControl<PartialSupply[]>;
 
     constructor(value: OrderFormValue = {}) {
         super(value);

@@ -27,7 +27,7 @@ export class HeaderComponent {
         {
             label: "Услуги",
             icon: "ess::cases",
-            routerLink: "/admin/work",
+            routerLink: "/admin/works",
         }
     ];
 

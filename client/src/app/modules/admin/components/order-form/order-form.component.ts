@@ -4,10 +4,9 @@ import { TuiContextWithImplicit, TuiIdentityMatcher, TuiStringHandler } from '@t
 import { OrderStatus } from 'src/app/shared/constants/status.constant';
 import { Supply as FullSupply } from '../../interfaces/supply.interface';
 import { Work as FullWork } from '../../interfaces/work.interface';
-import { OrderFormConfig } from './order-form.config';
+import { OrderFormConfig, PartialSupply, PartialWork } from './order-form.config';
 
-type Supply = Pick<FullSupply, 'id' | 'title' | 'pieceCost'>;
-type Work = Pick<FullWork, 'id' | 'title' | 'cost'>;
+
 @Component({
   selector: 'ess-order-form',
   templateUrl: './order-form.component.html',
@@ -15,20 +14,20 @@ type Work = Pick<FullWork, 'id' | 'title' | 'cost'>;
 })
 export class OrderFormComponent {
     @Input() form?: FormGroup<OrderFormConfig>;
-    @Input() supplies: Supply[] = [];
-    @Input() works: Work[] = [];
+    @Input() supplies: PartialSupply[] = [];
+    @Input() works: PartialWork[] = [];
 
     readonly statuses = Object.values(OrderStatus);
 
-    readonly stringifySupply: TuiStringHandler<Supply | TuiContextWithImplicit<Supply>> = item =>
+    readonly stringifySupply: TuiStringHandler<PartialSupply | TuiContextWithImplicit<PartialSupply>> = item =>
         `title` in item ? item.title : item.$implicit.title;
 
-    readonly identityMatcherSupply: TuiIdentityMatcher<Supply> = (supply1, supply2) =>
+    readonly identityMatcherSupply: TuiIdentityMatcher<PartialSupply> = (supply1, supply2) =>
         supply1.id === supply2.id;
 
-    readonly stringifyWork: TuiStringHandler<Work | TuiContextWithImplicit<Work>> = item =>
+    readonly stringifyWork: TuiStringHandler<PartialWork | TuiContextWithImplicit<PartialWork>> = item =>
         `title` in item ? item.title : item.$implicit.title;
 
-    readonly identityMatcherWork: TuiIdentityMatcher<Work> = (work1, work2) =>
+    readonly identityMatcherWork: TuiIdentityMatcher<PartialWork> = (work1, work2) =>
         work1.id === work2.id;
 }

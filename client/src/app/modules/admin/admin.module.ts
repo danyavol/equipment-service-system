@@ -25,6 +25,7 @@ import { EditSupplyShellComponent } from './containers/edit-supply-shell/edit-su
 import { WorkFormComponent } from './components/work-form/work-form.component';
 import { EditWorkShellComponent } from './containers/edit-work-shell/edit-work-shell.component';
 import { OrderFormComponent } from './components/order-form/order-form.component';
+import { EditOrderShellComponent } from './containers/edit-order-shell/edit-order-shell.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { OrderFormComponent } from './components/order-form/order-form.component
         EditSupplyShellComponent,
         WorkFormComponent,
         EditWorkShellComponent,
-        OrderFormComponent
+        OrderFormComponent,
+        EditOrderShellComponent
     ],
     imports: [
         CommonModule,

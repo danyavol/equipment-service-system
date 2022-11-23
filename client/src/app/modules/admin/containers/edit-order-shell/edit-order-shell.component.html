@@ -1,0 +1,20 @@
+<div class="tui-container tui-container_adaptive" *tuiLet="orderData$ | async as orderData">
+    <tui-loader class="ess-card" [overlay]="true" [showLoader]="isLoading || !orderData">
+        <div class="ess-card-title">Изменить заявку</div>
+
+        <ess-order-form
+            [form]="orderForm"
+            [supplies]="orderData?.supplies || []"
+            [works]="orderData?.works || []"
+        ></ess-order-form>
+
+        <div class="tui-form__buttons tui-form__buttons_align_end">
+            <button class="tui-form__button" tuiButton appearance="secondary"
+                (click)="orderForm.reset()" [disabled]="orderForm.pristine">Сброс</button>
+            <button class="tui-form__button" tuiButton icon="tuiIconCheckLarge"
+                (click)="submit()" [disabled]="orderForm.pristine">Сохранить</button>
+        </div>
+    </tui-loader>
+</div>
+
+
