@@ -25,8 +25,6 @@ function decodeJWT(token: Token): jwt.JwtPayload | null {
 export function authOnly(req: Request, res: Response, next: NextFunction): void {
     const tokenPayload = decodeJWT(req.cookies[tokenField]);
 
-    console.log(tokenPayload);
-
     if (tokenPayload) {
         // User authorized
         next();

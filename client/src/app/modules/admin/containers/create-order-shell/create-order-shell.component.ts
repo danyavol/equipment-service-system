@@ -12,6 +12,6 @@ export class CreateOrderShellComponent {
     form = new FormGroup(new OrderFormConfig());
 
     submit(o?: boolean) {
-
+        console.log(this.form.value);
     }
 }

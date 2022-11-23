@@ -55,37 +55,56 @@
         <tui-error formControlName="description" [error]="[] | tuiFieldError | async"></tui-error>
     </div>
 
-    <div class="tui-form__row tui-form__row_multi-fields">
-        <div class="tui-form__multi-field">
-            <!--
-                [editable]="false"
-                [stringify]="stringify"
-                [identityMatcher]="identityMatcher"
-             -->
-            <tui-multi-select
-                class="tui-space_top-2"
-                [editable]="true"
-                formControlName="supplies"
-
-                [tuiTextfieldLabelOutside]="true"
-                [tuiTextfieldCleaner]="true"
+    <div class="tui-form__row">
+        <tui-multi-select
+            class="tui-space_top-2"
+            [editable]="false"
+            formControlName="supplies"
+            [stringify]="stringifySupply"
+            [identityMatcher]="identityMatcherSupply"
+            [tuiTextfieldLabelOutside]="true"
+            [tuiTextfieldCleaner]="true"
+        >
+            Выберите запасы для заказа
+            <tui-data-list
+                *tuiDataList
+                tuiMultiSelectGroup
             >
-                Выберите запасы для заказа
-                <tui-data-list
-                    *tuiDataList
-                    tuiMultiSelectGroup
+                <button
+                    *ngFor="let item of supplies"
+                    tuiOption
+                    [value]="item"
                 >
-                    <button
-                        *ngFor="let item of supplies"
-                        tuiOption
-                        [value]="item"
-                    >
-                        {{ item.title }}
-                    </button>
-                </tui-data-list>
-            </tui-multi-select>
-        </div>
-        <div class="tui-form__multi-field"></div>
+                    {{ item.title }}
+                </button>
+            </tui-data-list>
+        </tui-multi-select>
+    </div>
+
+    <div class="tui-form__row">
+        <tui-multi-select
+            class="tui-space_top-2"
+            [editable]="false"
+            formControlName="works"
+            [stringify]="stringifyWork"
+            [identityMatcher]="identityMatcherWork"
+            [tuiTextfieldLabelOutside]="true"
+            [tuiTextfieldCleaner]="true"
+        >
+            Выберите услуги для заказа
+            <tui-data-list
+                *tuiDataList
+                tuiMultiSelectGroup
+            >
+                <button
+                    *ngFor="let item of works"
+                    tuiOption
+                    [value]="item"
+                >
+                    {{ item.title }}
+                </button>
+            </tui-data-list>
+        </tui-multi-select>
     </div>
 </ng-container>
 
