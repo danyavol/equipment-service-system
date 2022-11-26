@@ -19,3 +19,23 @@
     align-items: center;
     gap: 2rem;
 }
+
+.dot {
+    display: inline-block;
+    border-radius: 100%;
+    width: 0.75rem;
+    height: 0.75rem;
+    margin-right: 0.5rem;
+}
+
+.value {
+    margin-left: 0.5rem;
+    font-weight: 600;
+}
+
+:host,
+.hint {
+    --tui-chart-0: #c779d0;
+    --tui-chart-1: #feac5e;
+    --tui-chart-2: #ff5f6d;
+}

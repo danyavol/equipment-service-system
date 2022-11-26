@@ -8,3 +8,10 @@
     align-items: center;
     gap: 2rem;
 }
+
+:host {
+    --tui-chart-0: #8dda71;
+    --tui-chart-1: #fcc068;
+    --tui-chart-2: #a8cef1;
+    --tui-chart-3: #dab3f9;
+}
