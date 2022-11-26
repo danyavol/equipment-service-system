@@ -1,0 +1,41 @@
+<div class="ess-card">
+    <p class="tui-text_body-l title">Количество заявок за последний день/неделю/месяц</p>
+    <tui-axes
+        axisY="none"
+        class="axes"
+        [axisXLabels]="axisXLabels"
+        [axisYSecondaryLabels]="axisYSecondaryLabels"
+        [horizontalLines]="2"
+        [verticalLines]="4"
+        [horizontalLinesHandler]="horizontalLinesHandler"
+        [verticalLinesHandler]="verticalLinesHandler"
+    >
+        <tui-bar-set
+            class="chart"
+            [value]="values"
+            [tuiHintContent]="hint"
+        ></tui-bar-set>
+    </tui-axes>
+
+    <ng-template
+        #hint
+        let-setIndex
+    >
+        <p
+            *ngFor="let item of values; let index = index"
+            class="hint"
+        >
+            <!-- <span
+                class="dot"
+                [style.background]="getBackground(index)"
+            ></span>
+            <span class="name">{{ getSetName(index) }}</span>
+            <tui-money
+                [singleColor]="true"
+                [value]="item[setIndex] * 1000"
+            ></tui-money> -->
+            {{ item }}
+        </p>
+    </ng-template>
+</div>
+

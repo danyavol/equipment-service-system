@@ -1,0 +1,12 @@
+<div class="ess-card">
+    <p class="tui-text_body-l title">Количество заявок в ценовом диапазоне</p>
+    <tui-ring-chart
+        [value]="values"
+        [(activeItemIndex)]="index"
+        size="l"
+    >
+        <div>{{ value }}</div>
+        <div>{{ label }}</div>
+    </tui-ring-chart>
+</div>
+

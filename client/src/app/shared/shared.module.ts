@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TuiAxesModule, TuiRingChartModule, TuiBarSetModule } from '@taiga-ui/addon-charts';
 import { TuiTableModule } from '@taiga-ui/addon-table';
 import { TuiLetModule } from '@taiga-ui/cdk';
 import { TuiButtonModule, TuiDataListModule, TuiErrorModule, TuiHintModule, TuiLabelModule, TuiLoaderModule, TuiScrollbarModule, TuiSvgModule, TuiTextfieldControllerModule, TuiTooltipModule } from '@taiga-ui/core';
@@ -40,6 +41,9 @@ const TAIGA_MODULES = [
     TuiDataListModule,
     TuiDataListWrapperModule,
     TuiMultiSelectModule,
+    TuiRingChartModule,
+    TuiAxesModule,
+    TuiBarSetModule,
 ];
 
 @NgModule({

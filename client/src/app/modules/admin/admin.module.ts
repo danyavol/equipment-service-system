@@ -27,6 +27,10 @@ import { EditWorkShellComponent } from './containers/edit-work-shell/edit-work-s
 import { OrderFormComponent } from './components/order-form/order-form.component';
 import { EditOrderShellComponent } from './containers/edit-order-shell/edit-order-shell.component';
 import { AnalyticsShellComponent } from './containers/analytics-shell/analytics-shell.component';
+import { AnalyticsService } from './services/analytics.service';
+import { OrdersAmountInRangeComponent } from './components/analytics/orders-amount-in-range/orders-amount-in-range.component';
+import { ActiveOrdersAmountComponent } from './components/analytics/active-orders-amount/active-orders-amount.component';
+import { OrdersAmountPerPeriodComponent } from './components/analytics/orders-amount-per-period/orders-amount-per-period.component';
 
 
 @NgModule({
@@ -48,7 +52,10 @@ import { AnalyticsShellComponent } from './containers/analytics-shell/analytics-
         EditWorkShellComponent,
         OrderFormComponent,
         EditOrderShellComponent,
-        AnalyticsShellComponent
+        AnalyticsShellComponent,
+        OrdersAmountInRangeComponent,
+        ActiveOrdersAmountComponent,
+        OrdersAmountPerPeriodComponent
     ],
     imports: [
         CommonModule,
@@ -63,6 +70,7 @@ import { AnalyticsShellComponent } from './containers/analytics-shell/analytics-
         AdminOrdersApiService,
         SuppliesApiService,
         WorksApiService,
+        AnalyticsService,
     ]
 })
 export class AdminModule { }

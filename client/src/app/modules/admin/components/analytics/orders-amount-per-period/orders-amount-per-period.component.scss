@@ -1,0 +1,21 @@
+.axes {
+    height: 176px;
+    width: 15rem;
+}
+
+.chart {
+    height: 100%;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.title {
+    margin: 0;
+}
+
+.ess-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}

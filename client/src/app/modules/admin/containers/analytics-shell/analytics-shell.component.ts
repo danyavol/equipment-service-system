@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { AnalyticsService } from '../../services/analytics.service';
 
 @Component({
-  selector: 'ess-analytics-shell',
-  templateUrl: './analytics-shell.component.html',
-  styleUrls: ['./analytics-shell.component.scss']
+    selector: 'ess-analytics-shell',
+    templateUrl: './analytics-shell.component.html',
+    styleUrls: ['./analytics-shell.component.scss']
 })
-export class AnalyticsShellComponent implements OnInit {
+export class AnalyticsShellComponent {
+    analyticsData$ = this.analyticsService.getAnalyticsData();
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+    constructor(private analyticsService: AnalyticsService) { }
 }

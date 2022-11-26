@@ -1,8 +1,21 @@
 <pre>
 + количество выполненных заявок
 + общая выручка со всех выполненных заявок
-+ количество новых заявок за день/неделю/месяц
-+ аналитика стоимости выполненных заявок (средний ценник заявки. Кол-во заявок в диапазоне от 0р до 50р, от 50р до 100р, 100р - 200р, свыше 200р)
-+ Соотношение статусов активных заявок (по количеству)
++ средний ценник заявки
 + Количество и процент отмененных заявок
+++ количество новых заявок за день/неделю/месяц
+++ аналитика стоимости выполненных заявок (Кол-во заявок в диапазоне от 0р до 50р, от 50р до 100р, 100р - 200р, свыше 200р)
+++ Соотношение статусов активных заявок (по количеству)
 </pre>
+
+<ng-container *ngIf="analyticsData$ | async as analyticsData">
+    <p>{{analyticsData | json}}</p>
+
+    <div class="charts-wrapper">
+        <ess-orders-amount-in-range [data]="analyticsData.ordersAmountInRange"></ess-orders-amount-in-range>
+
+        <ess-active-orders-amount [data]="analyticsData.activeOrdersAmount"></ess-active-orders-amount>
+
+        <ess-orders-amount-per-period [data]="analyticsData.ordersAmountPerPeriod"></ess-orders-amount-per-period>
+    </div>
+</ng-container>
