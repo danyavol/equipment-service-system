@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { authOnly } from "src/services/auth.service";
+import analytics from "./analytics";
 import auth from "./auth.route";
 import orders from "./orders.route";
 import supplies from "./supplies.route";
@@ -12,3 +13,4 @@ routes.use('/orders', orders);
 routes.use('/supplies', authOnly, supplies);
 routes.use('/work', authOnly, work);
 routes.use('/auth', auth);
+routes.use('/analytics', authOnly, analytics);

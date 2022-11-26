@@ -28,6 +28,11 @@ export class HeaderComponent {
             label: "Услуги",
             icon: "ess::cases",
             routerLink: "/admin/works",
+        },
+        {
+            label: "Аналитика",
+            icon: "ess::monitoring",
+            routerLink: "/admin/analytics"
         }
     ];
 

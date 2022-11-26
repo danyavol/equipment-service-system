@@ -1,6 +1,7 @@
 import { inject, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
+import { AnalyticsShellComponent } from './containers/analytics-shell/analytics-shell.component';
 import { AuthShellComponent } from './containers/auth-shell/auth-shell.component';
 import { CreateOrderShellComponent } from './containers/create-order-shell/create-order-shell.component';
 import { CreateSupplyShellComponent } from './containers/create-supply-shell/create-supply-shell.component';
@@ -56,6 +57,11 @@ const routes: Routes = [
             {
                 path: "work/:id",
                 component: EditWorkShellComponent
+            },
+
+            {
+                path: "analytics",
+                component: AnalyticsShellComponent
             },
 
             { path: "**", redirectTo: "orders" }
