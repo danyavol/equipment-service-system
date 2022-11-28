@@ -66,3 +66,36 @@ orders.post('/', async (req, res) => {
         handleError(res, err);
     }
 });
+
+orders.post('/admin', async (req, res) => {
+    try {
+        const { clientName, phoneNumber, email, description, status, supplies, works } = req.body;
+
+        const newOrder = await db.Orders.create({
+            clientName,
+            phoneNumber,
+            email,
+            description,
+            status,
+        }, {});
+
+        await Promise.all([
+            db.OrderSupplies.bulkCreate(
+                supplies.map((supplyId: string) => ({
+                    orderId: newOrder.id,
+                    supplyId
+                }))
+            ),
+            db.OrderWork.bulkCreate(
+                works.map((workId: string) => ({
+                    orderId: newOrder.id,
+                    workId
+                }))
+            )
+        ]);
+
+        res.send();
+    } catch (err) {
+        handleError(res, err);
+    }
+});
