@@ -31,6 +31,7 @@ import { AnalyticsService } from './services/analytics.service';
 import { OrdersAmountInRangeComponent } from './components/analytics/orders-amount-in-range/orders-amount-in-range.component';
 import { ActiveOrdersAmountComponent } from './components/analytics/active-orders-amount/active-orders-amount.component';
 import { OrdersAmountPerPeriodComponent } from './components/analytics/orders-amount-per-period/orders-amount-per-period.component';
+import { InfoCardComponent } from './components/analytics/info-card/info-card.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { OrdersAmountPerPeriodComponent } from './components/analytics/orders-am
         AnalyticsShellComponent,
         OrdersAmountInRangeComponent,
         ActiveOrdersAmountComponent,
-        OrdersAmountPerPeriodComponent
+        OrdersAmountPerPeriodComponent,
+        InfoCardComponent
     ],
     imports: [
         CommonModule,

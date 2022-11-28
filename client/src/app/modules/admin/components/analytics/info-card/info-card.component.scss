@@ -1,0 +1,43 @@
+.card {
+    display: flex;
+    border-radius: var(--tui-radius-l);
+    padding: 1rem;
+    gap: 1rem;
+    font: var(--tui-font-heading-5);
+    align-items: center;
+
+    &.success {
+        background-color: var(--tui-support-03);
+    }
+
+    &.danger {
+        background-color: var(--tui-support-05);
+    }
+
+    &.help {
+        background-color: var(--tui-support-09);
+    }
+
+    &.warning {
+        background-color: var(--tui-support-07);
+    }
+
+    // .active-color {
+    //     background-color: var(--tui-support-01);
+    // }
+
+    // .secondary-color {
+    //     background-color: var(--tui-base-04);
+    // }
+
+    > .separator {
+        width: 2px;
+        height: 25px;
+        background: var(--tui-text-02);
+    }
+
+    > .title {
+        color: var(--tui-text-02);
+        font: var(--tui-font-heading-6);
+    }
+}

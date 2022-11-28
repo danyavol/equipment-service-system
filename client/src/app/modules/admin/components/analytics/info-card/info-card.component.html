@@ -1,0 +1,11 @@
+<div class="card {{color}}">
+    <div class="value">{{value}}</div>
+    <div class="separator"></div>
+
+    <ng-container *ngIf="secondValue != null">
+        <div class="value">{{secondValue}}</div>
+        <div class="separator"></div>
+    </ng-container>
+
+    <div class="title">{{title}}</div>
+</div>
