@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Inject, Output } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { TuiDialogContext } from '@taiga-ui/core';
 import { POLYMORPHEUS_CONTEXT } from '@tinkoff/ng-polymorpheus';
 import { menuConfig } from '../menu-config';
@@ -9,8 +9,6 @@ import { menuConfig } from '../menu-config';
     styleUrls: ['./mobile-menu.component.scss']
 })
 export class MobileMenuComponent {
-    @Output() logOut = new EventEmitter<void>();
-
     menuConfig = menuConfig;
 
     constructor(
@@ -22,7 +20,6 @@ export class MobileMenuComponent {
     }
 
     onLogOut() {
-        this.logOut.emit();
-        this.close();
+        this.context.completeWith(true);
     }
 }

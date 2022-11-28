@@ -35,7 +35,7 @@ export class HeaderComponent {
 
     openMobileMenu(): void {
         this.dialogService
-            .open(
+            .open<boolean>(
                 new PolymorpheusComponent(MobileMenuComponent, this.injector),
                 {
                     size: `page`,
@@ -43,7 +43,9 @@ export class HeaderComponent {
                     dismissible: true,
                 },
             )
-            .subscribe();
+            .subscribe(isLogOut => {
+                if (isLogOut) this.onLogOut();
+            });
     }
 
     onLogOut() {

@@ -4,11 +4,11 @@
             <tui-toggle [formControl]="onlyActiveControl" size="l"></tui-toggle>
             <div class="ess-toolbar__title">
                 <ng-container *ngIf="onlyActiveControl.value">
-                    Активные заявки
+                    Активные <span class="desktop-only">заявки</span>
                     <tui-tooltip [content]="note" direction="bottom-right"></tui-tooltip>
                 </ng-container>
                 <ng-container *ngIf="!onlyActiveControl.value">
-                    Все заявки
+                    Все <span class="desktop-only">заявки</span>
                     <tui-tooltip content="Отображаются все заявки" direction="bottom-right"></tui-tooltip>
                 </ng-container>
             </div>
