@@ -1,6 +1,10 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, Injector, Output } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { TuiDialogService } from '@taiga-ui/core';
+import { menuConfig } from '../menu-config';
+import { PolymorpheusComponent } from '@tinkoff/ng-polymorpheus';
+import { MobileMenuComponent } from '../mobile-menu/mobile-menu.component';
 
 @UntilDestroy()
 @Component({
@@ -13,30 +17,13 @@ export class HeaderComponent {
 
     activeItemIndex: number = -1;
 
-    readonly tabs = [
-        {
-            label: "Заявки",
-            icon: "ess::topic",
-            routerLink: "/admin/orders",
-        },
-        {
-            label: "Запасы",
-            icon: "ess::inventory",
-            routerLink: "/admin/supplies",
-        },
-        {
-            label: "Услуги",
-            icon: "ess::cases",
-            routerLink: "/admin/works",
-        },
-        {
-            label: "Аналитика",
-            icon: "ess::monitoring",
-            routerLink: "/admin/analytics"
-        }
-    ];
+    readonly tabs = menuConfig;
 
-    constructor(router: Router) {
+    constructor(
+        router: Router,
+        @Inject(TuiDialogService) private readonly dialogService: TuiDialogService,
+        @Inject(Injector) private readonly injector: Injector,
+    ) {
         this.setActiveItemIndex(router.url);
 
         router.events.pipe(untilDestroyed(this)).subscribe(event => {
@@ -44,6 +31,19 @@ export class HeaderComponent {
                 this.setActiveItemIndex(event.urlAfterRedirects);
             }
         });
+    }
+
+    openMobileMenu(): void {
+        this.dialogService
+            .open(
+                new PolymorpheusComponent(MobileMenuComponent, this.injector),
+                {
+                    size: `page`,
+                    closeable: true,
+                    dismissible: true,
+                },
+            )
+            .subscribe();
     }
 
     onLogOut() {

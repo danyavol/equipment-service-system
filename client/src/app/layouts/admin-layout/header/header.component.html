@@ -1,7 +1,7 @@
 <div class="header-wrapper">
     <div class="left-side">
-        <img src="assets/logo.png" height="40" class="mr-2">
-        <tui-tabs [(activeItemIndex)]="activeItemIndex">
+        <img src="assets/logo.png" height="40" class="mr-2" class="logo">
+        <tui-tabs [(activeItemIndex)]="activeItemIndex" class="desktop-only">
             <button *ngFor="let tab of tabs" tuiTab [routerLink]="tab.routerLink">
                 <tui-svg [src]="tab.icon" class="tui-space_right-2"></tui-svg>
                 {{tab.label}}
@@ -9,7 +9,9 @@
         </tui-tabs>
     </div>
 
-    <button tuiButton type="button" appearance="flat" size="m" icon="tuiIconLogoutLarge" (click)="onLogOut()">
+    <button tuiButton type="button" appearance="flat" size="m" icon="tuiIconLogoutLarge" (click)="onLogOut()" class="desktop-only">
         Выйти
     </button>
+
+    <button tuiIconButton type="button" appearance="flat" size="m" icon="tuiIconMenuLarge" (click)="openMobileMenu()" class="mobile-only"></button>
 </div>

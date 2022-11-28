@@ -1,0 +1,9 @@
+<div class="main-buttons">
+    <button tuiButton *ngFor="let tab of menuConfig" [routerLink]="tab.routerLink" [icon]="tab.icon" type="button" appearance="flat" size="m" (click)="close()">
+        {{tab.label}}
+    </button>
+</div>
+
+<button tuiButton type="button" appearance="flat" size="m" icon="tuiIconLogoutLarge" (click)="onLogOut()">
+    Выйти
+</button>

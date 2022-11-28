@@ -10,5 +10,16 @@
     main {
         padding-top: 1.5rem;
         padding-bottom: 1.5rem;
+
+        @media screen and (max-width: 47.9625em) {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        ::ng-deep {
+            .tui-container.tui-container_adaptive {
+                padding: 0;
+            }
+        }
     }
 }
