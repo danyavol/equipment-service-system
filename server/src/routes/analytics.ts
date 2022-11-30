@@ -79,7 +79,7 @@ function getAmountByStatus(allOrders: Order[], status: Status) {
 }
 
 function getAmountPerPeriod(orders: Order[], hours: number) {
-    return orders.filter(o => Date.now() - o.createdAt.getTime() < hours*60*1000).length;
+    return orders.filter(o => Date.now() - o.createdAt.getTime() < hours*60*60*1000).length;
 }
 
 function getOrdersAmountInRange(ordersPrices: number[], min: null | number, max: null | number) {
